@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, cloneElement, ReactElement } from "react";
+import React, { AnchorHTMLAttributes } from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import Link, { LinkProps } from "next/link";

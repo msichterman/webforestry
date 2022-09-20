@@ -12,7 +12,7 @@ type Props = {
 const Footer = ({ className, isTight = false, isApp = false }: Props) => {
   const footerNavigation = {
     main: [
-      { name: "Home", href: "/" },
+      { name: "Home", href: "/", exact: true },
       { name: "About", href: "/about" },
       { name: "Pricing", href: "/pricing" },
       { name: "Contact", href: "/contact" },
@@ -75,14 +75,15 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
             className="-mx-5 -my-2 flex flex-wrap justify-center"
             aria-label="Footer"
           >
-            {footerNavigation.main.map((item) => (
-              <div key={item.name} className="px-5 py-2">
+            {footerNavigation.main.map(({ name, href, exact = false }) => (
+              <div key={name} className="px-5 py-2">
                 <NavLink
-                  href={item.href}
+                  href={href}
                   className="text-base text-gray-400 hover:text-gray-300"
                   activeClassName="text-gray-200"
+                  exact={exact}
                 >
-                  {item.name}
+                  {name}
                 </NavLink>
               </div>
             ))}
