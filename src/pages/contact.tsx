@@ -8,13 +8,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ExternalLink from "../components/utils/ExternalLink";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
+import { pickBy } from "../utils/objectUtils";
 
 const Contact: NextPage = () => {
   const FormSchema = z.object({
     firstName: z.string().min(2).max(32),
     lastName: z.string().min(2).max(32),
     email: z.string().email(),
-    phone: z.string().min(10).max(20).optional(),
+    phone: z.string().min(10).max(20).optional().or(z.literal("")),
     subject: z.string().min(2).max(120),
     message: z.string().min(2).max(500),
   });
@@ -32,7 +33,8 @@ const Contact: NextPage = () => {
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     await new Promise(async (resolve) => {
       await setTimeout(() => {
-        console.log(data);
+        const sanitizedData = pickBy(data, (value: string) => value.length > 0);
+        console.log(sanitizedData);
         resolve(undefined);
       }, 3000);
     });
@@ -372,20 +374,21 @@ const Contact: NextPage = () => {
                   )}
                 </div>
                 <div>
-                  <div className="flex justify-between">
-                    <label
-                      htmlFor="phone"
-                      className={clsx(
-                        labelStyles,
-                        errors.phone && "text-red-500"
-                      )}
-                    >
-                      Phone
-                    </label>
-                    <span id="phone-optional" className="text-sm text-gray-500">
-                      Optional
-                    </span>
-                  </div>
+                  <label
+                    htmlFor="phone"
+                    className={clsx(
+                      labelStyles,
+                      errors.phone && "text-red-500"
+                    )}
+                  >
+                    Phone
+                  </label>
+                  <span
+                    id="phone-optional"
+                    className="text-xs text-gray-500 float-right mt-1"
+                  >
+                    Optional
+                  </span>
                   <div className="mt-1">
                     <input
                       type="text"
@@ -435,20 +438,21 @@ const Contact: NextPage = () => {
                   )}
                 </div>
                 <div className="sm:col-span-2">
-                  <div className="flex justify-between">
-                    <label
-                      htmlFor="message"
-                      className={clsx(
-                        labelStyles,
-                        errors.message && "text-red-500"
-                      )}
-                    >
-                      Message
-                    </label>
-                    <span id="message-max" className="text-sm text-gray-500">
-                      Max. 500 characters
-                    </span>
-                  </div>
+                  <label
+                    htmlFor="message"
+                    className={clsx(
+                      labelStyles,
+                      errors.message && "text-red-500"
+                    )}
+                  >
+                    Message
+                  </label>
+                  <span
+                    id="message-max"
+                    className="text-xs text-gray-500 float-right mt-1"
+                  >
+                    Max. 500 characters
+                  </span>
                   <div className="mt-1">
                     <textarea
                       id="message"
@@ -472,9 +476,15 @@ const Contact: NextPage = () => {
                 <div className="sm:col-span-2 sm:flex sm:justify-end">
                   <button
                     type="submit"
-                    className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 sm:w-auto"
+                    className={clsx(
+                      "mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 sm:w-auto",
+                      isSubmitting
+                        ? "bg-emerald-800"
+                        : "bg-emerald-600 hover:bg-emerald-700"
+                    )}
+                    disabled={isSubmitting}
                   >
-                    Submit
+                    {isSubmitting ? "Loading..." : "Submit"}
                   </button>
                 </div>
               </form>
