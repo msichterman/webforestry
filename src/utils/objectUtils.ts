@@ -2,7 +2,7 @@ import { UnknownObject } from "./typeUtils";
 
 export function pickBy(
   object: UnknownObject,
-  predicate: (arg: string) => boolean
+  predicate: (arg: unknown) => boolean
 ) {
   const obj: UnknownObject = {};
   for (const key in object) {

@@ -33,7 +33,10 @@ const Contact: NextPage = () => {
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     await new Promise(async (resolve) => {
       await setTimeout(() => {
-        const sanitizedData = pickBy(data, (value: string) => value.length > 0);
+        const sanitizedData = pickBy(
+          data,
+          (value) => typeof value === "string" && value.length > 0
+        );
         console.log(sanitizedData);
         resolve(undefined);
       }, 3000);
