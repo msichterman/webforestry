@@ -24,7 +24,9 @@ function NavLink({
 
   return (
     <Link href={href} {...props}>
-      <a className={clsx(className, isActive && activeClassName)}>{children}</a>
+      <span className={clsx(className, isActive && activeClassName)}>
+        {children}
+      </span>
     </Link>
   );
 }

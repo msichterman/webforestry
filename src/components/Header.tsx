@@ -39,29 +39,27 @@ const Header = () => {
   ];
 
   return (
-    <Popover className="sticky top-0 bg-white z-50 shadow">
-      <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+    <Popover className="sticky top-0 z-50 bg-white shadow">
+      <div className="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
         <div>
           <Link href="/">
-            <a className="flex">
-              <span className="sr-only">Workflow</span>
-              <Image
-                className="h-8 w-auto sm:h-10 max-w-full"
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=emerald&shade=600"
-                alt=""
-                width={20}
-                height={20}
-              />
-            </a>
+            <span className="sr-only">Workflow</span>
+            <Image
+              className="h-8 w-auto max-w-full sm:h-10"
+              src="https://tailwindui.com/img/logos/workflow-mark.svg?color=emerald&shade=600"
+              alt=""
+              width={20}
+              height={20}
+            />
           </Link>
         </div>
-        <div className="-mr-2 -my-2 md:hidden">
-          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+        <div className="-my-2 -mr-2 md:hidden">
+          <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
             <span className="sr-only">Open menu</span>
             <Bars4Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
+        <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
           <Popover.Group as="nav" className="flex space-x-10">
             <NavLink
               href="/about"
@@ -87,9 +85,9 @@ const Header = () => {
           </Popover.Group>
           <div className="flex items-center md:ml-12">
             <Link href={currentUser ? "/dashboard" : "/sign-in"}>
-              <a className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700">
+              <span className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-emerald-700">
                 {currentUser ? "Dashboard" : "Sign in"}
-              </a>
+              </span>
             </Link>
           </div>
         </div>
@@ -106,14 +104,14 @@ const Header = () => {
       >
         <Popover.Panel
           focus
-          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-            <div className="pt-5 pb-6 px-5">
+          <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
                   <Image
-                    className="h-8 w-auto relative max-w-full"
+                    className="relative h-8 w-auto max-w-full"
                     src="https://tailwindui.com/img/logos/workflow-mark.svg?color=emerald&shade=600"
                     alt="Workflow"
                     width={20}
@@ -121,7 +119,7 @@ const Header = () => {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -131,33 +129,33 @@ const Header = () => {
                 <nav className="grid gap-y-8">
                   {links.map((item) => (
                     <Link key={item.title} href={item.to}>
-                      <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                      <span className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">
                         <item.icon
-                          className="flex-shrink-0 h-6 w-6 text-emerald-600"
+                          className="h-6 w-6 flex-shrink-0 text-emerald-600"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-base font-medium text-gray-900">
                           {item.title}
                         </span>
-                      </a>
+                      </span>
                     </Link>
                   ))}
                 </nav>
               </div>
             </div>
-            <div className="py-6 px-5 space-y-6">
+            <div className="space-y-6 py-6 px-5">
               <div>
                 <Link href="/sign-up">
-                  <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700">
+                  <span className="flex w-full items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-emerald-700">
                     Sign up
-                  </a>
+                  </span>
                 </Link>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?{" "}
                   <Link href="/sign-in">
-                    <a className="text-emerald-600 hover:text-emerald-500">
+                    <span className="text-emerald-600 hover:text-emerald-500">
                       Sign in
-                    </a>
+                    </span>
                   </Link>
                 </p>
               </div>

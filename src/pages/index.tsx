@@ -29,17 +29,17 @@ const Home: NextPage = () => (
 
     <main>
       {/* Hero section */}
-      <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48 z-0">
-        <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
+      <div className="z-0 overflow-hidden pt-8 sm:pt-12 lg:relative lg:py-48">
+        <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-8">
           <div>
             <div className="mt-12">
               <div>
-                <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-500 tracking-wide uppercase">
+                <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-500">
                   Welcome to the jungle
                 </span>
               </div>
               <div className="mt-6 sm:max-w-xl">
-                <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
+                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                   Website development for growing businesses
                 </h1>
                 <p className="mt-6 text-xl text-gray-500">
@@ -47,7 +47,7 @@ const Home: NextPage = () => (
                   websites so you don&apos;t have to.
                 </p>
               </div>
-              <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
+              <form action="#" className="mt-12 sm:flex sm:w-full sm:max-w-lg">
                 <div className="min-w-0 flex-1">
                   <label htmlFor="hero-email" className="sr-only">
                     Email address
@@ -55,14 +55,14 @@ const Home: NextPage = () => (
                   <input
                     id="hero-email"
                     type="email"
-                    className="block w-full border-2 border-gray-300 rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-smb focus:outline-none focus:border-emerald-500 focus:ring-emerald-500"
+                    className="shadow-smb block w-full rounded-md border-2 border-gray-300 px-5 py-3 text-base text-gray-900 placeholder-gray-500 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
                     placeholder="Enter your email"
                   />
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-3">
                   <button
                     type="submit"
-                    className="block w-full rounded-md border border-transparent px-5 py-3 bg-emerald-500 text-base font-medium text-white shadow hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:px-10"
+                    className="block w-full rounded-md border border-transparent bg-emerald-500 px-5 py-3 text-base font-medium text-white shadow hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:px-10"
                   >
                     Let&apos;s get started
                   </button>
@@ -70,7 +70,7 @@ const Home: NextPage = () => (
               </form>
               <div className="mt-6">
                 <div className="inline-flex items-center divide-x divide-gray-300">
-                  <div className="flex-shrink-0 flex pr-5">
+                  <div className="flex flex-shrink-0 pr-5">
                     <StarIcon
                       className="h-5 w-5 text-yellow-400"
                       aria-hidden="true"
@@ -92,7 +92,7 @@ const Home: NextPage = () => (
                       aria-hidden="true"
                     />
                   </div>
-                  <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
+                  <div className="min-w-0 flex-1 py-1 pl-5 text-sm text-gray-500 sm:py-3">
                     <span className="font-medium text-gray-900">
                       Rated 5 stars
                     </span>{" "}
@@ -107,9 +107,9 @@ const Home: NextPage = () => (
         <div className="sm:mx-auto sm:max-w-3xl sm:px-6">
           <div className="py-12 sm:relative sm:mt-12 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
             <div className="hidden sm:block">
-              <div className="absolute inset-y-0 left-1/2 w-screen bg-gray-50 rounded-l-3xl lg:left-80 lg:right-0 lg:w-full" />
+              <div className="absolute inset-y-0 left-1/2 w-screen rounded-l-3xl bg-gray-50 lg:left-80 lg:right-0 lg:w-full" />
               <svg
-                className="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0"
+                className="absolute top-8 right-1/2 -mr-3 lg:left-0 lg:m-0"
                 width={404}
                 height={392}
                 fill="none"
@@ -141,7 +141,7 @@ const Home: NextPage = () => (
                 />
               </svg>
             </div>
-            <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full">
+            <div className="relative -mr-40 pl-4 sm:mx-auto sm:max-w-3xl sm:px-0 lg:h-full lg:max-w-none">
               <Image
                 className="w-full rounded-md lg:h-full lg:w-auto lg:max-w-none"
                 src={DevIllustration}
@@ -154,13 +154,13 @@ const Home: NextPage = () => (
 
       {/* Testimonial/stats section */}
       <div className="relative mt-20">
-        <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
+        <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
           <div className="relative sm:py-16 lg:py-0">
             <div
               aria-hidden="true"
               className="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
             >
-              <div className="absolute inset-y-0 right-1/2 w-full bg-gray-50 rounded-r-3xl lg:right-72" />
+              <div className="absolute inset-y-0 right-1/2 w-full rounded-r-3xl bg-gray-50 lg:right-72" />
               <svg
                 className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
                 width={404}
@@ -194,9 +194,9 @@ const Home: NextPage = () => (
                 />
               </svg>
             </div>
-            <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
+            <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
               {/* Testimonial card*/}
-              <div className="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
+              <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
                 <Image
                   className="absolute inset-0 h-full w-full object-cover grayscale"
                   src={BeefJurgy}
@@ -205,13 +205,13 @@ const Home: NextPage = () => (
                 <div className="absolute inset-0 bg-emerald-500 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-600 via-emerald-600 opacity-50" />
                 <div className="relative px-8">
-                  <div className="max-w-fit bg-gradient-to-r from-slate-800 to-gray-900 px-4 py-2 rounded-lg drop-shadow-lg">
+                  <div className="max-w-fit rounded-lg bg-gradient-to-r from-slate-800 to-gray-900 px-4 py-2 drop-shadow-lg">
                     <BeefJurgySvg />
                   </div>
                   <blockquote className="mt-8">
                     <div className="relative text-lg font-medium text-white md:flex-grow">
                       <svg
-                        className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-emerald-400"
+                        className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-emerald-400"
                         fill="currentColor"
                         viewBox="0 0 32 32"
                         aria-hidden="true"
@@ -229,7 +229,7 @@ const Home: NextPage = () => (
                     <footer className="mt-4">
                       <p className="text-base font-semibold text-emerald-200">
                         Cameron Jurgens,{" "}
-                        <span className="font-normal text-xs">
+                        <span className="text-xs font-normal">
                           Founder of{" "}
                           <ExternalLink
                             to="https://beefjurgy.com/"
@@ -250,14 +250,14 @@ const Home: NextPage = () => (
           <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
             {/* Content area */}
             <div className="pt-12 sm:pt-16 lg:pt-20">
-              <h2 className="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
+              <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 Grow your business and make the world a better place
               </h2>
-              <div className="mt-6 text-gray-500 space-y-6">
+              <div className="mt-6 space-y-6 text-gray-500">
                 <div className="text-base leading-7">
                   At Web Forestry, we believe that the best way for you to grow
                   your business is to build an online presence without:
-                  <ul className="list-disc list-inside my-2 text-sm">
+                  <ul className="my-2 list-inside list-disc text-sm">
                     <li>Sacrificing your producivity, or</li>
                     <li>
                       Distracting you from adding value to the lives of your
@@ -314,9 +314,9 @@ const Home: NextPage = () => (
               </dl>
               <div className="mt-10">
                 <Link href="trees">
-                  <a className="text-base font-medium text-emerald-500">
+                  <span className="text-base font-medium text-emerald-500">
                     Together we will actually plant trees? See how &nbsp;&rarr;
-                  </a>
+                  </span>
                 </Link>
               </div>
             </div>
@@ -329,7 +329,7 @@ const Home: NextPage = () => (
       {/* CTA section */}
       <div className="relative mt-24 sm:mt-32 sm:py-16">
         <div aria-hidden="true" className="hidden sm:block">
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl" />
+          <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-gray-50" />
           <svg
             className="absolute top-8 left-1/2 -ml-3"
             width={404}
@@ -364,7 +364,7 @@ const Home: NextPage = () => (
           </svg>
         </div>
         <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="relative rounded-2xl px-6 py-10 bg-emerald-500 overflow-hidden shadow-xl sm:px-12 sm:py-20">
+          <div className="relative overflow-hidden rounded-2xl bg-emerald-500 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
             <div
               aria-hidden="true"
               className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"
@@ -390,15 +390,15 @@ const Home: NextPage = () => (
             </div>
             <div className="relative">
               <div className="sm:text-center">
-                <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+                <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                   Not convinced to start building with us today?
                 </h2>
-                <p className="mt-6 mx-auto max-w-2xl text-lg text-emerald-100">
+                <p className="mx-auto mt-6 max-w-2xl text-lg text-emerald-100">
                   Drop us your email and we&apos;ll folow up with additional
                   information.
                 </p>
               </div>
-              <form action="#" className="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
+              <form action="#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
                 <div className="min-w-0 flex-1">
                   <label htmlFor="cta-email" className="sr-only">
                     Email address
@@ -406,14 +406,14 @@ const Home: NextPage = () => (
                   <input
                     id="cta-email"
                     type="email"
-                    className="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-500"
+                    className="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-500"
                     placeholder="Enter your email"
                   />
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-3">
                   <button
                     type="submit"
-                    className="block w-full rounded-md border border-transparent px-5 py-3 bg-gray-900 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
+                    className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
                   >
                     Let&apos;s talk soon
                   </button>

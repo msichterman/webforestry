@@ -143,3 +143,14 @@ enum GlobalRole {
     ADMIN
     CUSTOMER
 }
+
+model Contact {
+    id        Int      @id @default(autoincrement())
+    firstName String
+    lastName  String
+    email     String
+    phone     String?
+    subject   String   @db.Text
+    message   String   @db.Text
+    createdAt DateTime @default(now())
+}

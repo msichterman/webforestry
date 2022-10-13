@@ -20,7 +20,11 @@ export default defineNextConfig({
     locales: ["en"],
     defaultLocale: "en",
   },
-  experimental: { images: { allowFutureImage: true } },
+  experimental: {
+    images: { allowFutureImage: true },
+    newNextLinkBehavior: true,
+    scrollRestoration: true,
+  },
   images: {
     dangerouslyAllowSVG: true,
     domains: ["tailwindui.com"],

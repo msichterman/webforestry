@@ -9,6 +9,8 @@ import ExternalLink from "../components/utils/ExternalLink";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { pickBy } from "../utils/objectUtils";
+import { trpc } from "@/utils/trpc";
+import ResultBadge from "@/components/ResultBadge";
 
 const Contact: NextPage = () => {
   const FormSchema = z.object({
@@ -25,29 +27,34 @@ const Contact: NextPage = () => {
   const {
     register,
     handleSubmit,
+    clearErrors,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
   });
 
+  const contact = trpc.message.contactForm.useMutation({
+    onSuccess() {
+      reset();
+    },
+  });
+
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
-    await new Promise(async (resolve) => {
-      await setTimeout(() => {
-        const sanitizedData = pickBy(
-          data,
-          (value) => typeof value === "string" && value.length > 0
-        );
-        console.log(sanitizedData);
-        resolve(undefined);
-      }, 3000);
-    });
+    clearErrors();
+    const sanitizedData = pickBy<FormSchemaType>(
+      data,
+      (value) => typeof value === "string" && value.length > 0
+    );
+    contact.mutate(sanitizedData);
   };
 
-  const labelStyles = "text-xs uppercase font-medium tracking-wide";
+  const labelStyles = "text-xs font-medium";
+  const errorLabelStyles = "text-xs font-medium text-red-500";
   const inputStyles =
     "block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm";
-  const errorStyles =
-    "normal-case text-red-600 font-light text-center bg-red-100 px-4 py-2 rounded-md mt-2 block";
+  const errorInputStyles =
+    "block w-full appearance-none rounded-md border border-red-500 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-sm";
 
   return (
     <Page isTightFooter>
@@ -63,13 +70,13 @@ const Contact: NextPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3">
             {/* Contact information */}
-            <div className="relative overflow-hidden py-10 px-6 bg-emerald-600 sm:px-10 xl:p-12">
+            <div className="relative overflow-hidden bg-emerald-600 py-10 px-6 sm:px-10 xl:p-12">
               <div
-                className="absolute inset-0 pointer-events-none sm:hidden"
+                className="pointer-events-none absolute inset-0 sm:hidden"
                 aria-hidden="true"
               >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   width={343}
                   height={388}
                   viewBox="0 0 343 388"
@@ -98,11 +105,11 @@ const Contact: NextPage = () => {
                 </svg>
               </div>
               <div
-                className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
+                className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 sm:block lg:hidden"
                 aria-hidden="true"
               >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   width={359}
                   height={339}
                   viewBox="0 0 359 339"
@@ -131,11 +138,11 @@ const Contact: NextPage = () => {
                 </svg>
               </div>
               <div
-                className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
+                className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 lg:block"
                 aria-hidden="true"
               >
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   width={160}
                   height={678}
                   viewBox="0 0 160 678"
@@ -166,7 +173,7 @@ const Contact: NextPage = () => {
               <h3 className="text-2xl font-medium text-white">
                 Contact our team
               </h3>
-              <p className="mt-6 text-base text-emerald-50 max-w-3xl">
+              <p className="mt-6 max-w-3xl text-base text-emerald-50">
                 Have a question? We&apos;d love to hear from you. Send us a
                 message and we&apos;ll get back to you as soon as possible.
               </p>
@@ -176,7 +183,7 @@ const Contact: NextPage = () => {
                 </dt>
                 <dd className="flex text-base text-emerald-50">
                   <PhoneIcon
-                    className="flex-shrink-0 w-6 h-6 text-emerald-200"
+                    className="h-6 w-6 flex-shrink-0 text-emerald-200"
                     aria-hidden="true"
                   />
                   <ExternalLink
@@ -191,7 +198,7 @@ const Contact: NextPage = () => {
                 </dt>
                 <dd className="flex text-base text-emerald-50">
                   <EnvelopeIcon
-                    className="flex-shrink-0 w-6 h-6 text-emerald-200"
+                    className="h-6 w-6 flex-shrink-0 text-emerald-200"
                     aria-hidden="true"
                   />
                   <ExternalLink
@@ -216,7 +223,7 @@ const Contact: NextPage = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6"
+                        className="h-6 w-6"
                         aria-hidden="true"
                       >
                         <path
@@ -240,7 +247,7 @@ const Contact: NextPage = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6"
+                        className="h-6 w-6"
                         aria-hidden="true"
                       >
                         <path
@@ -264,7 +271,7 @@ const Contact: NextPage = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6"
+                        className="h-6 w-6"
                         aria-hidden="true"
                       >
                         <path
@@ -287,14 +294,14 @@ const Contact: NextPage = () => {
               </h3>
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                onBlur={() => clearErrors()}
               >
                 <div>
                   <label
                     htmlFor="firstName"
                     className={clsx(
-                      labelStyles,
-                      errors.firstName && "text-red-500"
+                      errors.firstName ? errorLabelStyles : labelStyles
                     )}
                   >
                     First name
@@ -302,28 +309,31 @@ const Contact: NextPage = () => {
                   <div className="mt-1">
                     <input
                       type="text"
-                      {...register("firstName")}
                       id="firstName"
                       autoComplete="given-name"
+                      {...register("firstName")}
                       className={clsx(
-                        inputStyles,
-                        errors.firstName && "border-red-500"
+                        errors.firstName ? errorInputStyles : inputStyles
                       )}
                       disabled={isSubmitting}
                     />
+                    {errors.firstName && (
+                      <p
+                        className={clsx(
+                          errorLabelStyles,
+                          "mt-1 text-xxs leading-4"
+                        )}
+                      >
+                        {errors.firstName.message}
+                      </p>
+                    )}
                   </div>
-                  {errors.firstName && (
-                    <p className={clsx(labelStyles, errorStyles)}>
-                      {errors.firstName.message}
-                    </p>
-                  )}
                 </div>
                 <div>
                   <label
                     htmlFor="lastName"
                     className={clsx(
-                      labelStyles,
-                      errors.lastName && "text-red-500"
+                      errors.lastName ? errorLabelStyles : labelStyles
                     )}
                   >
                     Last name
@@ -331,28 +341,31 @@ const Contact: NextPage = () => {
                   <div className="mt-1">
                     <input
                       type="text"
-                      {...register("lastName")}
                       id="lastName"
+                      {...register("lastName")}
                       autoComplete="family-name"
                       className={clsx(
-                        inputStyles,
-                        errors.lastName && "border-red-500"
+                        errors.lastName ? errorInputStyles : inputStyles
                       )}
                       disabled={isSubmitting}
                     />
+                    {errors.lastName && (
+                      <p
+                        className={clsx(
+                          errorLabelStyles,
+                          "mt-1 text-xxs leading-4"
+                        )}
+                      >
+                        {errors.lastName.message}
+                      </p>
+                    )}
                   </div>
-                  {errors.lastName && (
-                    <p className={clsx(labelStyles, errorStyles)}>
-                      {errors.lastName.message}
-                    </p>
-                  )}
                 </div>
                 <div>
                   <label
                     htmlFor="email"
                     className={clsx(
-                      labelStyles,
-                      errors.email && "text-red-500"
+                      errors.email ? errorLabelStyles : labelStyles
                     )}
                   >
                     Email
@@ -360,64 +373,69 @@ const Contact: NextPage = () => {
                   <div className="mt-1">
                     <input
                       id="email"
-                      {...register("email")}
                       type="email"
                       autoComplete="email"
+                      {...register("email")}
                       className={clsx(
-                        inputStyles,
-                        errors.email && "border-red-500"
+                        errors.email ? errorInputStyles : inputStyles
                       )}
                       disabled={isSubmitting}
                     />
+                    {errors.email && (
+                      <p
+                        className={clsx(
+                          errorLabelStyles,
+                          "mt-1 text-xxs leading-4"
+                        )}
+                      >
+                        {errors.email.message}
+                      </p>
+                    )}
                   </div>
-                  {errors.email && (
-                    <p className={clsx(labelStyles, errorStyles)}>
-                      {errors.email.message}
-                    </p>
-                  )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className={clsx(
-                      labelStyles,
-                      errors.phone && "text-red-500"
-                    )}
-                  >
-                    Phone
-                  </label>
-                  <span
-                    id="phone-optional"
-                    className="text-xs text-gray-500 float-right mt-1"
-                  >
-                    Optional
-                  </span>
+                  <div className="flex justify-between">
+                    <label
+                      htmlFor="phone"
+                      className={clsx(
+                        errors.phone ? errorLabelStyles : labelStyles
+                      )}
+                    >
+                      Phone
+                    </label>
+                    <span id="phone-optional" className="text-sm text-gray-500">
+                      Optional
+                    </span>
+                  </div>
                   <div className="mt-1">
                     <input
                       type="text"
-                      {...register("phone")}
                       id="phone"
                       autoComplete="tel"
+                      {...register("phone")}
                       className={clsx(
-                        inputStyles,
-                        errors.phone && "border-red-500"
+                        errors.phone ? errorInputStyles : inputStyles
                       )}
-                      aria-describedby="phone-optional"
                       disabled={isSubmitting}
+                      aria-describedby="phone-optional"
                     />
+                    {errors.phone && (
+                      <p
+                        className={clsx(
+                          errorLabelStyles,
+                          "mt-1 text-xxs leading-4"
+                        )}
+                      >
+                        {errors.phone.message}
+                      </p>
+                    )}
                   </div>
-                  {errors.phone && (
-                    <p className={clsx(labelStyles, errorStyles)}>
-                      {errors.phone.message}
-                    </p>
-                  )}
                 </div>
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="subject"
                     className={clsx(
-                      labelStyles,
-                      errors.subject && "text-red-500"
+                      errors.subject ? errorLabelStyles : labelStyles
                     )}
                   >
                     Subject
@@ -425,69 +443,83 @@ const Contact: NextPage = () => {
                   <div className="mt-1">
                     <input
                       type="text"
-                      {...register("subject")}
                       id="subject"
+                      {...register("subject")}
                       className={clsx(
-                        inputStyles,
-                        errors.subject && "border-red-500"
+                        errors.subject ? errorInputStyles : inputStyles
                       )}
                       disabled={isSubmitting}
                     />
+                    {errors.subject && (
+                      <p
+                        className={clsx(
+                          errorLabelStyles,
+                          "mt-1 text-xxs leading-4"
+                        )}
+                      >
+                        {errors.subject.message}
+                      </p>
+                    )}
                   </div>
-                  {errors.subject && (
-                    <p className={clsx(labelStyles, errorStyles)}>
-                      {errors.subject.message}
-                    </p>
-                  )}
                 </div>
                 <div className="sm:col-span-2">
-                  <label
-                    htmlFor="message"
-                    className={clsx(
-                      labelStyles,
-                      errors.message && "text-red-500"
-                    )}
-                  >
-                    Message
-                  </label>
-                  <span
-                    id="message-max"
-                    className="text-xs text-gray-500 float-right mt-1"
-                  >
-                    Max. 500 characters
-                  </span>
+                  <div className="flex justify-between">
+                    <label
+                      htmlFor="message"
+                      className={clsx(
+                        errors.message ? errorLabelStyles : labelStyles
+                      )}
+                    >
+                      Message
+                    </label>
+                    <span id="message-max" className="text-sm text-gray-500">
+                      Max. 500 characters
+                    </span>
+                  </div>
                   <div className="mt-1">
                     <textarea
                       id="message"
-                      {...register("message")}
                       rows={4}
+                      {...register("message")}
                       className={clsx(
-                        inputStyles,
-                        errors.message && "border-red-500"
+                        errors.message ? errorInputStyles : inputStyles
                       )}
                       aria-describedby="message-max"
                       defaultValue={""}
                       disabled={isSubmitting}
                     />
+                    {errors.message && (
+                      <p
+                        className={clsx(
+                          errorLabelStyles,
+                          "mt-1 text-xxs leading-4"
+                        )}
+                      >
+                        {errors.message.message}
+                      </p>
+                    )}
                   </div>
-                  {errors.message && (
-                    <p className={clsx(labelStyles, errorStyles)}>
-                      {errors.message.message}
-                    </p>
-                  )}
                 </div>
-                <div className="sm:col-span-2 sm:flex sm:justify-end">
+                <div className="flex justify-end sm:col-span-2">
+                  <ResultBadge
+                    isError={contact.isError}
+                    errorMessage={contact.error?.message}
+                    isSuccess={contact.isSuccess}
+                    successMessage={
+                      contact.data?.firstName &&
+                      `Thanks ${contact.data.firstName}! We will get back to you soon.`
+                    }
+                    className="mr-2"
+                  />
                   <button
                     type="submit"
-                    className={clsx(
-                      "mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 sm:w-auto",
-                      isSubmitting
-                        ? "bg-emerald-800"
-                        : "bg-emerald-600 hover:bg-emerald-700"
-                    )}
                     disabled={isSubmitting}
+                    className={clsx(
+                      "mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-emerald-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:w-auto lg:mt-0",
+                      contact.isLoading && "animate-pulse"
+                    )}
                   >
-                    {isSubmitting ? "Loading..." : "Submit"}
+                    Submit
                   </button>
                 </div>
               </form>

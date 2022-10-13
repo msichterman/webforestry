@@ -1,4 +1,4 @@
-import { UnknownObject } from "../../utils/typeUtils";
+import { UnknownObject } from "@/utils/typeUtils";
 
 const BeefJurgy = (props: UnknownObject) => (
   <svg
