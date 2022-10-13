@@ -104,6 +104,7 @@ const About: NextPage = () => {
                     the website – not only for Dinklage Feed Yards customers but
                     also for employees at Dinklage managing the site.
                   </p>
+                  <br />
                   <p>
                     Fast forward to the spring of 2022. Dinklage was no stranger
                     as they continued to request one-off website maintenance
@@ -115,7 +116,9 @@ const About: NextPage = () => {
                     misunderstanding resulted in Dinklage Feed Yards to be back
                     at square zero with their website.
                   </p>
+                  <br />
                   <p>That&apos;s where we came in.</p>
+                  <br />
                   <p>
                     Within 30 days, we completely rebuilt the Dinklage Feed
                     Yards website from the ground up, using cutting-edge
@@ -128,6 +131,7 @@ const About: NextPage = () => {
                     their website content, manage job postings, maintain feed
                     yard contacts, and more.
                   </p>
+                  <br />
                   <p>
                     Through working with Dinklage Feed Yards, our eyes were
                     opened to this one point:{" "}
@@ -136,6 +140,7 @@ const About: NextPage = () => {
                       with you.
                     </strong>
                   </p>
+                  <br />
                   <p>
                     Here at Web Forestry, we are committed to helping businesses
                     like Dinklage Feed Yards – so that you can focus on your

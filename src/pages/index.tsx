@@ -7,8 +7,8 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import ExternalLink from "../components/utils/ExternalLink";
 import PricingTable from "../components/PricingTable";
 import DevIllustration from "../../public/img/DevIllustration.png";
-import Ryan from "../../public/img/Ryan.png";
-import Amex from "../components/svgs/Amex";
+import BeefJurgy from "../../public/img/BeefJurgy.jpeg";
+import BeefJurgySvg from "../components/svgs/BeefJurgy";
 import Page from "../layouts/Page";
 
 const stats = [
@@ -199,14 +199,14 @@ const Home: NextPage = () => (
               <div className="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
                 <Image
                   className="absolute inset-0 h-full w-full object-cover grayscale"
-                  src={Ryan}
+                  src={BeefJurgy}
                   alt=""
                 />
                 <div className="absolute inset-0 bg-emerald-500 mix-blend-multiply" />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-600 via-emerald-600 opacity-70" />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-600 via-emerald-600 opacity-50" />
                 <div className="relative px-8">
-                  <div className="h-12">
-                    <Amex />
+                  <div className="max-w-fit bg-gradient-to-r from-slate-800 to-gray-900 px-4 py-2 rounded-lg drop-shadow-lg">
+                    <BeefJurgySvg />
                   </div>
                   <blockquote className="mt-8">
                     <div className="relative text-lg font-medium text-white md:flex-grow">
@@ -220,17 +220,24 @@ const Home: NextPage = () => (
                       </svg>
                       <p className="relative">
                         Web Forestry&apos;s attention to detail and ability to
-                        translate our ideas into implementations makes them a
-                        joy to work with. If you are looking to grow your
-                        business, then you need to call Web Forestry.
+                        turn our ideas into reality makes them a joy to work
+                        with. If you want to grow your business, then you need
+                        to call Web Forestry.
                       </p>
                     </div>
 
                     <footer className="mt-4">
                       <p className="text-base font-semibold text-emerald-200">
-                        Ryan Le,{" "}
-                        <span className="font-normal">
-                          Software Engineer at American Express
+                        Cameron Jurgens,{" "}
+                        <span className="font-normal text-xs">
+                          Founder of{" "}
+                          <ExternalLink
+                            to="https://beefjurgy.com/"
+                            className="font-bold"
+                          >
+                            Beef Jurgy
+                          </ExternalLink>{" "}
+                          & Center for the Philadephia Eagles
                         </span>
                       </p>
                     </footer>
