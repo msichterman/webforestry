@@ -21,7 +21,6 @@ export default defineNextConfig({
     defaultLocale: "en",
   },
   experimental: {
-    images: { allowFutureImage: true },
     newNextLinkBehavior: true,
     scrollRestoration: true,
   },
