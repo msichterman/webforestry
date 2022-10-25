@@ -7,13 +7,13 @@ type PageLayoutProps = {
   isAppFooter?: boolean;
 };
 
-const Page = ({
+const PageLayout = ({
   children,
   isTightFooter = false,
   isAppFooter = false,
 }: PageLayoutProps) => {
   return (
-    <div className="flex flex-col justify-between h-full min-h-screen w-full min-w-full bg-gray-50">
+    <div className="flex h-full min-h-screen w-full min-w-full flex-col justify-between bg-gray-50">
       <Header />
       <div className="mx-auto w-full">{children}</div>
       <Footer isTight={isTightFooter} isApp={isAppFooter} />
@@ -21,4 +21,4 @@ const Page = ({
   );
 };
 
-export default Page;
+export default PageLayout;

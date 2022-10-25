@@ -84,7 +84,7 @@ const Header = () => {
             </NavLink>
           </Popover.Group>
           <div className="flex items-center md:ml-12">
-            <Link href={currentUser ? "/dashboard" : "/sign-in"}>
+            <Link href={currentUser ? "app/dashboard" : "app/sign-in"}>
               <span className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-emerald-700">
                 {currentUser ? "Dashboard" : "Sign in"}
               </span>

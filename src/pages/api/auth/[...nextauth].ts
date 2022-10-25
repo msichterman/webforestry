@@ -1,8 +1,7 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
-// import AppleProvider from "next-auth/providers/apple";
 // import GoogleProvider from "next-auth/providers/google";
 // import TwitterProvider from "next-auth/providers/twitter";
-// import GitHubProvider from "next-auth/providers/github";
+// import LinkedinProvider from "next-auth/providers/linkedin";
 // import EmailProvider from "next-auth/providers/email";
 
 // Prisma adapter for NextAuth, optional and can be removed
@@ -31,7 +30,7 @@ export const authOptions: NextAuthOptions = {
     //   clientId: process.env.TWITTER_CLIENT_ID,
     //   clientSecret: process.env.TWITTER_CLIENT_SECRET,
     // }),
-    // GitHubProvider({
+    // LinkedinProvider({
     //   clientId: process.env.GITHUB_ID,
     //   clientSecret: process.env.GITHUB_SECRET,
     // }),
