@@ -55,7 +55,7 @@ const Home: NextPage = () => (
                   <input
                     id="hero-email"
                     type="email"
-                    className="shadow-smb block w-full rounded-md border-2 border-gray-300 px-5 py-3 text-base text-gray-900 placeholder-gray-500 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
+                    className="block w-full rounded-md border-2 border-gray-300 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -196,7 +196,7 @@ const Home: NextPage = () => (
             </div>
             <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
               {/* Testimonial card*/}
-              <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
+              <div className="relative overflow-hidden rounded-2xl pt-64 pb-10">
                 <Image
                   className="absolute inset-0 h-full w-full object-cover grayscale"
                   src={BeefJurgy}
@@ -205,8 +205,8 @@ const Home: NextPage = () => (
                 <div className="absolute inset-0 bg-emerald-500 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-600 via-emerald-600 opacity-50" />
                 <div className="relative px-8">
-                  <div className="max-w-fit rounded-lg bg-gradient-to-r from-slate-800 to-gray-900 px-4 py-2 drop-shadow-lg">
-                    <BeefJurgySvg />
+                  <div className="w-36">
+                    <BeefJurgySvg className="h-full w-full drop-shadow-2xl" />
                   </div>
                   <blockquote className="mt-8">
                     <div className="relative text-lg font-medium text-white md:flex-grow">
@@ -253,45 +253,21 @@ const Home: NextPage = () => (
               <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 Grow your business and make the world a better place
               </h2>
-              <div className="mt-6 space-y-6 text-gray-500">
-                <div className="text-base leading-7">
-                  At Web Forestry, we believe that the best way for you to grow
-                  your business is to build an online presence without:
-                  <ul className="my-2 list-inside list-disc text-sm">
-                    <li>Sacrificing your producivity, or</li>
-                    <li>
-                      Distracting you from adding value to the lives of your
-                      customers.
-                    </li>
-                  </ul>
-                  That&apos;s why we take the reigns, and remain by your side as
-                  long as you want us on your team. We&apos;ll design, develop,
-                  manage, and update you website – a{" "}
-                  <span className="italic">software-team-as-a-service</span> if
-                  you will.
-                </div>
-                <p className="text-base leading-7">
-                  So what is the deal with all these dang trees? Well,
-                  we&apos;re committed to not only building you beautiful
-                  websites that will grow with your business but also to making
-                  the world a better place. Our clients span all types of
-                  domains, serving customers and making impacts on the world in
-                  their own ways.
-                </p>
-                <p className="text-base leading-7">
-                  We deliver value to our clients digitally to help them change
-                  the world, but we also want to do our part to directly help
-                  the physical world. To do so, a portion of our revenue goes
-                  towards planting trees with the team over at{" "}
-                  <ExternalLink
-                    to="https://teamtrees.org/"
-                    className="text-emerald-500 hover:text-emerald-700"
-                  >
-                    #teamtrees
-                  </ExternalLink>
-                  ! Contributions made to Team Trees are sent directly to the
-                  Arbor Day Foundation to fund tree-planting worldwide.
-                </p>
+              <div className="mt-6 space-y-6 text-base leading-7 text-gray-500">
+                At Web Forestry, we believe that the best way for you to grow
+                your business is to build an online presence without:
+                <ul className="my-2 list-inside list-disc text-sm">
+                  <li>Sacrificing your producivity, or</li>
+                  <li>
+                    Distracting you from adding value to the lives of your
+                    customers.
+                  </li>
+                </ul>
+                That&apos;s why we take the reigns, and remain by your side as
+                long as you want us on your team. We&apos;ll design, develop,
+                manage, and update your website – a{" "}
+                <span className="italic">software-team-as-a-service</span> if
+                you will.
               </div>
             </div>
 

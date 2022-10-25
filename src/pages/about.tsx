@@ -18,7 +18,7 @@ const About: NextPage = () => {
         <div className="overflow-hidden">
           <div className="relative mx-auto max-w-7xl py-24 px-4 sm:px-6 lg:px-8">
             <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
-            <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
+            <div className="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-3">
               <div>
                 <div>
                   <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-500">
@@ -30,7 +30,7 @@ const About: NextPage = () => {
                 </h2>
               </div>
             </div>
-            <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-10">
+            <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-6">
               <div className="relative lg:col-start-2 lg:row-start-1">
                 <svg
                   className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"
@@ -65,7 +65,7 @@ const About: NextPage = () => {
                     fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)"
                   />
                 </svg>
-                <div className="relative mx-auto max-w-prose text-base lg:max-w-none">
+                <div className="relative mx-auto text-base lg:max-w-none">
                   <figure>
                     <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                       <Image
@@ -87,7 +87,7 @@ const About: NextPage = () => {
                 </div>
               </div>
               <div className="mt-8 lg:mt-0">
-                <div className="mx-auto max-w-prose text-base lg:max-w-none">
+                <div className="mx-auto text-base lg:max-w-none">
                   <p className="text-lg text-gray-500">
                     In the summer of 2020, Dinklage Feed Yards was in dire need
                     of a website developer when the Wordpress website powering
@@ -96,7 +96,7 @@ const About: NextPage = () => {
                     stuck.
                   </p>
                 </div>
-                <div className="prose-emerald prose mx-auto mt-5 text-gray-500 lg:col-start-1 lg:row-start-1 lg:max-w-none">
+                <div className="mx-auto mt-5 text-gray-500 lg:col-start-1 lg:row-start-1 lg:max-w-none">
                   <p>
                     After debugging through the site, the problem was quickly
                     resolved and Dinklage Feed Yards was back in business. After

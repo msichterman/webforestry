@@ -2,10 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/future/image";
 import React from "react";
-import Page from "../layouts/Page";
-import PricingTable from "../components/PricingTable";
+import Page from "@/layouts/Page";
+import PricingTable from "@/components/PricingTable";
+import DinklageLogo from "../../public/img/dinklage-gray.png";
+import BeefJurgyLogo from "../../public/img/beef-jurgy-gray.png";
 
-const About: NextPage = () => {
+const Pricing: NextPage = () => {
   const faqs = [
     {
       id: 1,
@@ -30,10 +32,10 @@ const About: NextPage = () => {
           {/* Overlapping background */}
           <div
             aria-hidden="true"
-            className="hidden absolute bg-gray-50 w-full h-6 bottom-0 lg:block"
+            className="absolute bottom-0 hidden h-6 w-full bg-gray-50 lg:block"
           />
 
-          <div className="relative max-w-2xl mx-auto pt-16 px-4 text-center sm:pt-32 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="relative mx-auto max-w-2xl px-4 pt-16 text-center sm:px-6 sm:pt-32 lg:max-w-7xl lg:px-8">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
               Pick a plan that best suits your business
             </h1>
@@ -49,48 +51,21 @@ const About: NextPage = () => {
         </section>
 
         {/* Logo cloud */}
-        <section className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5 relative w-full h-full">
-            <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 h-12 relative">
+        <section className="mx-auto max-w-2xl py-12 px-4 sm:px-6 lg:py-32 lg:px-8">
+          <div className="relative grid h-full w-full grid-cols-2 gap-8">
+            <div className="relative col-span-1 flex h-16 justify-center md:h-24">
               <Image
-                src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg"
-                alt="Tuple"
+                src={DinklageLogo}
+                alt="Dinklage Feed Yards"
                 className="object-contain"
                 sizes="100vw"
                 fill
               />
             </div>
-            <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 h-12 relative">
+            <div className="relative col-span-1 flex justify-center">
               <Image
-                src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg"
-                alt="Mirage"
-                className="object-contain"
-                sizes="100vw"
-                fill
-              />
-            </div>
-            <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 h-12 relative">
-              <Image
-                src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg"
-                alt="StaticKit"
-                className="object-contain"
-                sizes="100vw"
-                fill
-              />
-            </div>
-            <div className="col-span-1 flex justify-center md:col-span-3 lg:col-span-1 h-12 relative">
-              <Image
-                src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg"
-                alt="Transistor"
-                className="object-contain"
-                sizes="100vw"
-                fill
-              />
-            </div>
-            <div className="col-span-2 flex justify-center md:col-span-3 lg:col-span-1 relative">
-              <Image
-                src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg"
-                alt="Workcation"
+                src={BeefJurgyLogo}
+                alt="Beef Jurgy"
                 className="object-contain"
                 sizes="100vw"
                 fill
@@ -101,7 +76,7 @@ const About: NextPage = () => {
 
         {/* FAQs */}
         <section aria-labelledby="faq-heading" className="bg-gray-900">
-          <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="max-w-2xl lg:mx-auto lg:text-center">
               <h2
                 id="faq-heading"
@@ -116,7 +91,7 @@ const About: NextPage = () => {
               </p>
             </div>
             <div className="mt-20">
-              <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
+              <dl className="space-y-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10 lg:space-y-0">
                 {faqs.map((faq) => (
                   <div key={faq.id}>
                     <dt className="font-semibold text-white">{faq.question}</dt>
@@ -132,4 +107,4 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
+export default Pricing;
