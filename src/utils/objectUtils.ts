@@ -7,3 +7,6 @@ export function pickBy<T>(object: T, predicate: (arg: unknown) => boolean) {
   }
   return obj;
 }
+
+export const fallbackAvatar = (name: string | undefined | null) =>
+  `https://avatar.tobi.sh/tobiaslins.svg?text=${name && name[0]}`;

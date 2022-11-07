@@ -1,7 +1,7 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
-// import GoogleProvider from "next-auth/providers/google";
-// import TwitterProvider from "next-auth/providers/twitter";
-// import LinkedinProvider from "next-auth/providers/linkedin";
+import GoogleProvider from "next-auth/providers/google";
+import TwitterProvider from "next-auth/providers/twitter";
+import LinkedinProvider from "next-auth/providers/linkedin";
 // import EmailProvider from "next-auth/providers/email";
 
 // Prisma adapter for NextAuth, optional and can be removed
@@ -22,18 +22,19 @@ export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),
   providers: [
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_CLIENT_ID,
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    // }),
-    // TwitterProvider({
-    //   clientId: process.env.TWITTER_CLIENT_ID,
-    //   clientSecret: process.env.TWITTER_CLIENT_SECRET,
-    // }),
-    // LinkedinProvider({
-    //   clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-    // }),
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    }),
+    TwitterProvider({
+      clientId: env.TWITTER_CLIENT_ID,
+      clientSecret: env.TWITTER_CLIENT_SECRET,
+      version: "2.0",
+    }),
+    LinkedinProvider({
+      clientId: env.LINKEDIN_CLIENT_ID,
+      clientSecret: env.LINKEDIN_CLIENT_SECRET,
+    }),
     // EmailProvider({
     //   server: process.env.EMAIL_SERVER,
     //   from: process.env.EMAIL_FROM,

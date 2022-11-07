@@ -26,7 +26,10 @@ export default defineNextConfig({
   },
   images: {
     dangerouslyAllowSVG: true,
-    domains: ["tailwindui.com", "images.unsplash.com"],
-    formats: ["image/avif", "image/webp"],
+    domains: [
+      "tailwindui.com",
+      "images.unsplash.com",
+      "lh3.googleusercontent.com",
+    ],
   },
 });
