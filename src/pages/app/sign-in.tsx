@@ -1,9 +1,9 @@
 import AuthLayout from "@/layouts/AuthLayout";
-import Image from "next/future/image";
 import { signIn, useSession } from "next-auth/react";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import WebForestryIcon from "@/components/svgs/WebForestryIcon";
 
 export default function Example() {
   const { data: session, status } = useSession();
@@ -62,13 +62,8 @@ export default function Example() {
       <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div className="w-full">
-            <div className="relative h-12 w-12">
-              <Image
-                src="https://tailwindui.com/img/logos/mark.svg?color=emerald&shade=600"
-                alt="Your Company"
-                sizes="100vw"
-                fill
-              />
+            <div>
+              <WebForestryIcon className="relative h-12 w-auto max-w-full text-emerald-600" />
             </div>
             {session ? (
               <h2>hi {session.user?.name}</h2>

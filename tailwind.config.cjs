@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const colors = require("tailwindcss/colors");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
@@ -13,6 +15,9 @@ module.exports = {
         cyan: colors.cyan,
         rose: colors.rose,
       },
+    },
+    fontFamily: {
+      sans: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       tiny: ["0.6rem", { lineHeight: "1.5rem" }],
