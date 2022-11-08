@@ -49,7 +49,7 @@ const Pricing: NextPage = () => {
       id: 7,
       question: "How do we update the website after it's launched?",
       answer:
-        "This is where our monthly and yearly memberships thrive. The Web Forestry Team is always here to make any updates or changes to your website, wontact us with your ideas and updates! Most updates will be completed within a week.",
+        "This is where our monthly and yearly memberships thrive. The Web Forestry Team is always here to make any updates or changes to your website, contact us with your ideas and updates! Most updates will be completed within a week.",
     },
     // More questions...
   ];
