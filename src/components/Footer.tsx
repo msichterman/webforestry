@@ -54,6 +54,10 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
         ),
       },
     ],
+    legal: [
+      { name: "Privacy Policy", href: "/legal/privacy-policy", exact: true },
+      { name: "Terms of Service", href: "/legal/terms", exact: true },
+    ],
   };
 
   return (
@@ -66,7 +70,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
     >
       <div
         className={clsx(
-          "mx-auto max-w-md px-4 overflow-hidden sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8",
+          "mx-auto max-w-md overflow-hidden px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8",
           isApp ? "py-8" : "py-12"
         )}
       >
@@ -90,7 +94,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
           </nav>
         )}
         <div
-          className={clsx("flex justify-center space-x-6", !isApp && "mt-8")}
+          className={clsx("flex justify-center space-x-6", !isApp && "my-8")}
         >
           {footerNavigation.social.map((item) => (
             <ExternalLink
@@ -106,6 +110,25 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
             </ExternalLink>
           ))}
         </div>
+        {!isApp && (
+          <nav
+            className="-mx-5 -my-2 flex flex-wrap justify-center"
+            aria-label="Footer"
+          >
+            {footerNavigation.legal.map(({ name, href, exact = false }) => (
+              <div key={name} className="px-5 py-2">
+                <NavLink
+                  href={href}
+                  className="text-sm text-gray-400 hover:text-gray-300"
+                  activeClassName="text-gray-200"
+                  exact={exact}
+                >
+                  {name}
+                </NavLink>
+              </div>
+            ))}
+          </nav>
+        )}
         <p className="mt-8 text-center text-base text-gray-400">
           &copy; 2022 Web Forestry. All rights reserved.
         </p>
