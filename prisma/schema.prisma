@@ -13,6 +13,7 @@ datasource db {
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url                  = env("DATABASE_URL")
+    shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
     referentialIntegrity = "prisma"
 }
 
@@ -90,8 +91,9 @@ model Organization {
 }
 
 model Subscription {
-    id               Int               @id @default(autoincrement())
-    checkoutSessions CheckoutSession[]
+    id                   Int               @id @default(autoincrement())
+    checkoutSessions     CheckoutSession[]
+    stripeSubscriptionId String
 
     organization   Organization @relation(fields: [organizationId], references: [id])
     organizationId Int          @unique // client-reference-id=`${organizationId}` https://stripe.com/docs/payments/checkout/pricing-table#handle-fulfillment-with-the-stripe-api
@@ -101,9 +103,8 @@ model Subscription {
 }
 
 model CheckoutSession {
-    id                   Int    @id @default(autoincrement())
-    stripeSubscriptionId String
-    stripeCheckoutUrl    String @db.Text
+    id                      Int    @id @default(autoincrement())
+    stripeCheckoutSessionId String
 
     subscription   Subscription @relation(fields: [subscriptionId], references: [id])
     subscriptionId Int

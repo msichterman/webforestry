@@ -12,10 +12,25 @@ import { env } from "@/env/server.mjs";
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
+
+        const userObj = await prisma.user.findUnique({
+          where: {
+            id: user.id,
+          },
+          include: {
+            memberships: true,
+          },
+        });
+        if (userObj) {
+          session.user.role = userObj.role;
+          session.user.orgId =
+            userObj.memberships && userObj.memberships[0]?.organizationId;
+        }
       }
+
       return session;
     },
   },

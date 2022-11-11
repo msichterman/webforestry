@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import WebForestryIcon from "@/components/svgs/WebForestryIcon";
 
-export default function Example() {
+export default function SignIn() {
   const { data: session, status } = useSession();
 
   const FormSchema = z.object({

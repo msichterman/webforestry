@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Script from "next/script";
+import { env } from "@/env/client.mjs";
 
 const PricingTable = ({ isTight = false }: { isTight?: boolean }) => {
   return (
@@ -10,13 +11,13 @@ const PricingTable = ({ isTight = false }: { isTight?: boolean }) => {
       />
       <div
         className={clsx(
-          "relative py-16 bg-emerald-600",
+          "relative bg-emerald-600 py-16",
           !isTight && "mt-24 sm:mt-32"
         )}
       >
         <stripe-pricing-table
           pricing-table-id="prctbl_1LVRNXCJKJJ8TAYyDbU7U7oq"
-          publishable-key="pk_test_51JBhZACJKJJ8TAYyLLHMxKvYAWhwNbg3ioZP0MF1EQkrk9xeuoKetegfycx7TiHopvrte4H9jmseBIwJbdw4I7Dq00qNnX0U8W"
+          publishable-key={env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
         ></stripe-pricing-table>
       </div>
     </>
