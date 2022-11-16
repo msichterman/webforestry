@@ -34,12 +34,14 @@ type AppLayoutProps = {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [newOrgId, setNewOrgId] = useState<number | null>(null);
 
   const { data: session, status } = useSession();
   const router = useRouter();
   const { id } = router.query;
   const initializeSubscription = trpc.subscription.initialize.useMutation({
-    async onSuccess() {
+    async onSuccess(data) {
+      setNewOrgId(data.id);
       await getSession();
     },
   });
@@ -53,10 +55,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     default:
       const user = (session as Session).user;
       const stripeCheckoutSessionId = id as string;
-      console.log(session);
 
       // User just completed a subscription
-      if (id && !user?.orgId) {
+      if (id && !user?.orgId && !newOrgId) {
         initializeSubscription.mutate({ id: stripeCheckoutSessionId });
 
         if (initializeSubscription.isLoading) {
