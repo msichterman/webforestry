@@ -38,6 +38,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const { id } = router.query;
+  const initializeSubscription = trpc.subscription.initialize.useMutation({
+    async onSuccess() {
+      await getSession();
+    },
+  });
 
   switch (status) {
     case "loading":
@@ -48,18 +53,14 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     default:
       const user = (session as Session).user;
       const stripeCheckoutSessionId = id as string;
+      console.log(session);
 
       // User just completed a subscription
       if (id && !user?.orgId) {
-        const subscription = trpc.subscription.initialize.useMutation();
-        subscription.mutate({ id: stripeCheckoutSessionId });
+        initializeSubscription.mutate({ id: stripeCheckoutSessionId });
 
-        if (subscription.isLoading) {
+        if (initializeSubscription.isLoading) {
           return <FullPageSpinner />;
-        }
-
-        if (subscription.isSuccess) {
-          getSession();
         }
       }
 
