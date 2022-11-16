@@ -15,7 +15,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import ResultBadge from "@/components/ResultBadge";
 import clsx from "clsx";
-import { GET_STARTED, TALK_SOON } from "@/utils/constants";
+import { GET_STARTED, TALK_SOON } from "@/lib/utils/constants";
 
 const stats = [
   { label: "Founded", value: "2022" },

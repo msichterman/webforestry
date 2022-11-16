@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { UnknownObject } from "../utils/typeUtils";
+import { UnknownObject } from "../lib/utils/typeUtils";
 import ExternalLink from "./utils/ExternalLink";
 import NavLink from "./utils/NavLink";
 

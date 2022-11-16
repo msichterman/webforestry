@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   HomeIcon,
@@ -9,16 +9,16 @@ import {
   PencilSquareIcon,
   PhotoIcon,
 } from "@heroicons/react/24/outline";
+import { PlusIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import Footer from "@/components/Footer";
 import NavLink from "@/components/utils/NavLink";
-import { useSession, signOut, getSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import { fallbackAvatar } from "@/utils/objectUtils";
+import { fallbackAvatar } from "@/lib/utils/objectUtils";
 import FullPageSpinner from "@/components/FullPageSpinner";
-import { Session } from "next-auth";
 import WebForestry from "@/components/svgs/WebForestry";
-import { trpc } from "@/utils/trpc";
+import { trpc } from "@/lib/utils/trpc";
 
 const navigation = [
   { name: "Dashboard", to: "/app/dashboard", icon: HomeIcon },
@@ -39,13 +39,42 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const { id } = router.query;
-  const initializeSubscription = trpc.subscription.initialize.useMutation({
+  const reloadSession = () => {
+    const event = new Event("visibilitychange");
+    document.dispatchEvent(event);
+  };
+
+  const { mutateAsync, isLoading } = trpc.subscription.initialize.useMutation({
     async onSuccess(data) {
+      reloadSession();
       setNewOrgId(data.id);
-      await getSession();
     },
   });
 
+  const stripeCheckoutSessionId = id as string;
+  const userHasOrg = session?.user?.orgIds?.length || newOrgId;
+
+  useEffect(() => {
+    if (session?.user) {
+      // User just completed a subscription
+      if (stripeCheckoutSessionId && !userHasOrg) {
+        const handleInitializeSubscription = async () =>
+          await mutateAsync({
+            id: stripeCheckoutSessionId,
+          });
+        handleInitializeSubscription();
+      }
+    }
+  }, [
+    id,
+    mutateAsync,
+    newOrgId,
+    session?.user,
+    stripeCheckoutSessionId,
+    userHasOrg,
+  ]);
+
+  // Session Status
   switch (status) {
     case "loading":
       return <FullPageSpinner />;
@@ -53,19 +82,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       router.push("/app/sign-in");
       return null;
     default:
-      const user = (session as Session).user;
-      const stripeCheckoutSessionId = id as string;
-
-      // User just completed a subscription
-      if (id && !user?.orgId && !newOrgId) {
-        initializeSubscription.mutate({ id: stripeCheckoutSessionId });
-
-        if (initializeSubscription.isLoading) {
-          return <FullPageSpinner />;
-        }
+      if (isLoading) {
+        return <FullPageSpinner />;
       }
 
-      return (
+      return userHasOrg ? (
         <div className="h-screen">
           <div className="h-full">
             <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -168,7 +189,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                       </div>
                       <div className="flex flex-shrink-0 border-t border-emerald-800">
                         <NavLink
-                          href={`/app/profile/${user?.id}`}
+                          href={`/app/profile/${session.user?.id}`}
                           className="group block w-full flex-shrink-0 p-4"
                           activeClassName="bg-emerald-800"
                         >
@@ -176,13 +197,16 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                             <div>
                               <img
                                 className="inline-block h-10 w-10 rounded-full"
-                                src={user?.image || fallbackAvatar(user?.name)}
+                                src={
+                                  session.user?.image ||
+                                  fallbackAvatar(session.user?.name)
+                                }
                                 alt=""
                               />
                             </div>
                             <div className="ml-3">
                               <p className="text-base font-medium text-white">
-                                {user?.name}
+                                {session.user?.name}
                               </p>
                               <p className="text-sm font-medium text-emerald-200 group-hover:text-white">
                                 View profile
@@ -252,7 +276,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                 </div>
                 <div className="flex flex-shrink-0 border-t border-emerald-800">
                   <NavLink
-                    href={`/app/profile/${user?.id}`}
+                    href={`/app/profile/${session.user?.id}`}
                     className="group block w-full flex-shrink-0 p-4"
                     activeClassName="bg-emerald-800"
                   >
@@ -260,13 +284,16 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                       <div>
                         <img
                           className="inline-block h-9 w-9 rounded-full"
-                          src={user?.image || fallbackAvatar(user?.name)}
+                          src={
+                            session.user?.image ||
+                            fallbackAvatar(session.user?.name)
+                          }
                           alt="Profile avatar"
                         />
                       </div>
                       <div className="ml-3">
                         <p className="text-sm font-medium text-white">
-                          {user?.name}
+                          {session.user?.name}
                         </p>
                         <p className="text-xs font-medium text-emerald-200 group-hover:text-white">
                           View profile
@@ -292,6 +319,38 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               <Footer isTight isApp />
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="flex h-screen max-h-full w-full min-w-full flex-col justify-between">
+          <div className="mx-auto flex h-full max-h-full w-full justify-center md:px-12 lg:px-0">
+            <div className="z-10 flex flex-col py-10 px-4 sm:justify-center md:flex-none md:px-28">
+              <div className="mx-auto w-full sm:px-4 md:px-0">
+                <div className="text-center">
+                  <CreditCardIcon className="mx-auto h-12 w-12 text-gray-400" />
+                  <h3 className="mt-2 text-sm font-medium text-gray-900">
+                    No organization
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Get started by purchasing a subscription.
+                  </p>
+                  <div className="mt-6">
+                    <button
+                      type="button"
+                      className="inline-flex items-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                      onClick={() => router.push("/pricing")}
+                    >
+                      <PlusIcon
+                        className="-ml-1 mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      Start working with us today!
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Footer isTight />
         </div>
       );
   }

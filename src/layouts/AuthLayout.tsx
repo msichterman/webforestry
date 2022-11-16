@@ -12,8 +12,6 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
   const router = useRouter();
   const { id } = router.query;
 
-  // id = cs_test_b1MXNrIxMcqaHGslOsWRMiqcYXOCsJciAyBONawo6hsehXOYMyi8nqQ63b
-
   switch (status) {
     case "loading":
       return <FullPageSpinner />;

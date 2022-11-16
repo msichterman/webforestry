@@ -26,8 +26,9 @@ export const authOptions: NextAuthOptions = {
         });
         if (userObj) {
           session.user.role = userObj.role;
-          session.user.orgId =
-            userObj.memberships && userObj.memberships[0]?.organizationId;
+          session.user.orgIds = userObj?.memberships.map(
+            (m) => m.organizationId
+          );
         }
       }
 

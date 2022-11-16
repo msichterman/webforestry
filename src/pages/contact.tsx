@@ -8,11 +8,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ExternalLink from "../components/utils/ExternalLink";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { pickBy } from "../utils/objectUtils";
-import { trpc } from "@/utils/trpc";
+import { pickBy } from "../lib/utils/objectUtils";
+import { trpc } from "@/lib/utils/trpc";
 import ResultBadge from "@/components/ResultBadge";
 import { useRouter } from "next/router";
-import { GET_STARTED, REPORT_ERROR, TALK_SOON } from "@/utils/constants";
+import { GET_STARTED, REPORT_ERROR, TALK_SOON } from "@/lib/utils/constants";
 
 const Contact: NextPage = () => {
   const FormSchema = z.object({

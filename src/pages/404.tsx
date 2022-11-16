@@ -1,4 +1,4 @@
-import { REPORT_ERROR } from "@/utils/constants";
+import { REPORT_ERROR } from "@/lib/utils/constants";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";

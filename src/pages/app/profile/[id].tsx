@@ -1,5 +1,5 @@
 import AppLayout from "@/layouts/AppLayout";
-import { fallbackAvatar } from "@/utils/objectUtils";
+import { fallbackAvatar } from "@/lib/utils/objectUtils";
 import { useSession } from "next-auth/react";
 
 export default function Profile() {

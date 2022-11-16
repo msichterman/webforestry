@@ -93,7 +93,7 @@ model Organization {
 model Subscription {
     id                   Int               @id @default(autoincrement())
     checkoutSessions     CheckoutSession[]
-    stripeSubscriptionId String
+    stripeSubscriptionId String            @unique
 
     organization   Organization @relation(fields: [organizationId], references: [id])
     organizationId Int          @unique // client-reference-id=`${organizationId}` https://stripe.com/docs/payments/checkout/pricing-table#handle-fulfillment-with-the-stripe-api
@@ -104,7 +104,7 @@ model Subscription {
 
 model CheckoutSession {
     id                      Int    @id @default(autoincrement())
-    stripeCheckoutSessionId String
+    stripeCheckoutSessionId String @unique
 
     subscription   Subscription @relation(fields: [subscriptionId], references: [id])
     subscriptionId Int
