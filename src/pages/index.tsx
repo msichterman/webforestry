@@ -318,7 +318,7 @@ const Home: NextPage = () => {
                 <div className="mt-6 space-y-6 text-base leading-7 text-gray-500">
                   At Web Forestry, we believe that the best way for you to grow
                   your business is to build an online presence without:
-                  <ul className="my-2 list-inside list-disc text-sm">
+                  <ul className="my-4 list-inside list-disc text-sm">
                     <li>Sacrificing your producivity, or</li>
                     <li>
                       Distracting you from adding value to the lives of your
@@ -326,10 +326,7 @@ const Home: NextPage = () => {
                     </li>
                   </ul>
                   That&apos;s why we take the reigns, and remain by your side as
-                  long as you want us on your team. We&apos;ll design, develop,
-                  manage, and update your website – a{" "}
-                  <span className="italic">software-team-as-a-service</span> if
-                  you will.
+                  long as you want us on your team.
                 </div>
               </div>
 
