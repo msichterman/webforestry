@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                   </span>
                 </div>
                 <div className="mt-6 sm:max-w-xl">
-                  <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                  <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:font-extrabold">
                     Website development for growing businesses
                   </h1>
                   <p className="mt-6 text-xl text-gray-500">
@@ -215,7 +215,7 @@ const Home: NextPage = () => {
         </div>
 
         {/* Testimonial/stats section */}
-        <div className="relative mt-20">
+        <div className="relative my-20">
           <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
             <div className="relative sm:py-16 lg:py-0">
               <div
@@ -258,7 +258,7 @@ const Home: NextPage = () => {
               </div>
               <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
                 {/* Testimonial card*/}
-                <div className="relative overflow-hidden rounded-2xl pt-64 pb-10">
+                <div className="relative overflow-hidden rounded-3xl pt-64 pb-10">
                   <Image
                     className="absolute inset-0 h-full w-full object-cover grayscale"
                     src={BeefJurgy}
@@ -403,7 +403,7 @@ const Home: NextPage = () => {
             </svg>
           </div>
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-            <div className="relative overflow-hidden rounded-2xl bg-emerald-500 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
+            <div className="relative overflow-hidden rounded-3xl bg-emerald-500 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"

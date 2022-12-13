@@ -20,8 +20,8 @@ module.exports = {
       sans: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      tiny: ["0.6rem", { lineHeight: "1.5rem" }],
-      xxs: ["0.75rem", { lineHeight: "1.5rem" }],
+      tiny: ["0.6rem", { lineHeight: "1rem" }],
+      xxs: ["0.75rem", { lineHeight: "1.25rem" }],
       xs: ["0.8125rem", { lineHeight: "1.5rem" }],
       sm: ["0.875rem", { lineHeight: "1.5rem" }],
       base: ["1rem", { lineHeight: "1.75rem" }],
