@@ -33,9 +33,9 @@
     @apply text-xs font-medium text-red-500;
   }
   .input {
-    @apply block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-5 py-3 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-base;
+    @apply block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-4 py-2 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-base;
   }
   .error-input {
-    @apply block w-full appearance-none rounded-md border border-red-500 bg-gray-50 px-5 py-3 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-base;
+    @apply block w-full appearance-none rounded-md border border-red-500 bg-gray-50 px-4 py-2 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-base;
   }
 }

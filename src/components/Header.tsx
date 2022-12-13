@@ -12,8 +12,12 @@ import { Fragment } from "react";
 import NavLink from "./utils/NavLink";
 import WebForestry from "@/components/svgs/WebForestry";
 import clsx from "clsx";
+import { useSession } from "next-auth/react";
 
 const Header = ({ isWide = false }) => {
+  const { status } = useSession();
+  const isLoading = status === "loading";
+  const isAuthenticated = status === "authenticated";
   const links = [
     {
       title: "Home",
@@ -83,13 +87,15 @@ const Header = ({ isWide = false }) => {
               Contact
             </NavLink>
           </Popover.Group>
-          {/* <div className="flex items-center md:ml-12">
-            <Link href={currentUser ? "app/dashboard" : "app/sign-in"}>
-              <span className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-emerald-700">
-                {currentUser ? "Dashboard" : "Sign in"}
-              </span>
-            </Link>
-          </div> */}
+          {!isLoading && (
+            <div className="flex items-center md:ml-12">
+              <Link href={isAuthenticated ? "app/dashboard" : "app/sign-in"}>
+                <span className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-emerald-700">
+                  {isAuthenticated ? "Dashboard" : "Sign in"}
+                </span>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
@@ -137,23 +143,15 @@ const Header = ({ isWide = false }) => {
                 </nav>
               </div>
             </div>
-            {/* <div className="space-y-6 py-6 px-5">
-              <div>
-                <Link href="/sign-up">
+            {!isLoading && (
+              <div className="space-y-6 py-6 px-5">
+                <Link href={isAuthenticated ? "app/dashboard" : "app/sign-in"}>
                   <span className="flex w-full items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-emerald-700">
-                    Sign up
+                    {isAuthenticated ? "Dashboard" : "Sign in"}
                   </span>
                 </Link>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <Link href="/sign-in">
-                    <span className="text-emerald-600 hover:text-emerald-500">
-                      Sign in
-                    </span>
-                  </Link>
-                </p>
               </div>
-            </div> */}
+            )}
           </div>
         </Popover.Panel>
       </Transition>

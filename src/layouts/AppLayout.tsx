@@ -6,7 +6,7 @@ import {
   XMarkIcon,
   CreditCardIcon,
   CogIcon,
-  PencilSquareIcon,
+  SquaresPlusIcon,
   PhotoIcon,
 } from "@heroicons/react/24/outline";
 import { PlusIcon } from "@heroicons/react/20/solid";
@@ -22,7 +22,7 @@ import { trpc } from "@/lib/utils/trpc";
 
 const navigation = [
   { name: "Dashboard", to: "/app/dashboard", icon: HomeIcon },
-  { name: "Content Management", to: "/app/content", icon: PencilSquareIcon },
+  { name: "Task Management", to: "/app/tasks", icon: SquaresPlusIcon },
   { name: "Assets", to: "/app/assets", icon: PhotoIcon },
   { name: "Payments", to: "/app/payments", icon: CreditCardIcon },
   { name: "Settings", to: "/app/settings", icon: CogIcon, separator: true },
@@ -87,8 +87,8 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       }
 
       return userHasOrg ? (
-        <div className="h-screen">
-          <div className="h-full">
+        <div className="relative h-screen min-h-screen">
+          <div className="h-screen">
             <Transition.Root show={sidebarOpen} as={Fragment}>
               <Dialog
                 as="div"
@@ -178,7 +178,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                             ))}
                           </nav>
                         </div>
-                        <div className="px-2">
+                        <div className="mt-2 px-2">
                           <button
                             onClick={() => signOut()}
                             className="block w-full rounded-md border border-transparent bg-emerald-800 px-2 py-2 text-xs font-medium uppercase text-emerald-50 shadow hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-100 focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
@@ -265,7 +265,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                       </Fragment>
                     ))}
                   </nav>
-                  <div className="px-2">
+                  <div className="mt-2 px-2">
                     <button
                       onClick={() => signOut()}
                       className="block w-full rounded-md border border-transparent bg-emerald-800 px-2 py-2 text-xs font-medium uppercase text-emerald-50 shadow hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-100 focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
@@ -321,7 +321,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
           </div>
         </div>
       ) : (
-        <div className="flex h-screen max-h-full w-full min-w-full flex-col justify-between">
+        <div className="flex max-h-full min-h-screen w-full min-w-full flex-col justify-between">
           <div className="mx-auto flex h-full max-h-full w-full justify-center md:px-12 lg:px-0">
             <div className="z-10 flex flex-col py-10 px-4 sm:justify-center md:flex-none md:px-28">
               <div className="mx-auto w-full sm:px-4 md:px-0">
@@ -350,7 +350,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               </div>
             </div>
           </div>
-          <Footer isTight />
+          <Footer className="relative" isTight />
         </div>
       );
   }

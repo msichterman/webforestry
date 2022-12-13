@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import Script from "next/script";
 import { env } from "@/env/client.mjs";
+import { useSession } from "next-auth/react";
 
 const PricingTable = ({ isTight = false }: { isTight?: boolean }) => {
+  const { data: session } = useSession();
   return (
     <>
       <Script
@@ -15,10 +17,19 @@ const PricingTable = ({ isTight = false }: { isTight?: boolean }) => {
           !isTight && "mt-24 sm:mt-32"
         )}
       >
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1LVRNXCJKJJ8TAYyDbU7U7oq"
-          publishable-key={env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-        ></stripe-pricing-table>
+        {session?.user ? (
+          <stripe-pricing-table
+            pricing-table-id="prctbl_1LVRNXCJKJJ8TAYyDbU7U7oq"
+            publishable-key={env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+            customer-email={session?.user.email}
+            client-reference-id={session?.user.id}
+          ></stripe-pricing-table>
+        ) : (
+          <stripe-pricing-table
+            pricing-table-id="prctbl_1LVRNXCJKJJ8TAYyDbU7U7oq"
+            publishable-key={env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+          ></stripe-pricing-table>
+        )}
       </div>
     </>
   );

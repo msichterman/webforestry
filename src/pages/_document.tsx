@@ -37,7 +37,7 @@ const modeScript = `
 
 export default function Document() {
   return (
-    <Html className="h-full antialiased" lang="en">
+    <Html className="h-screen min-h-screen antialiased" lang="en">
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=optional"
@@ -59,7 +59,7 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
       </Head>
-      <body className="flex h-full flex-col bg-zinc-50">
+      <body className="flex h-screen flex-col bg-zinc-50">
         <Main />
         <NextScript />
       </body>

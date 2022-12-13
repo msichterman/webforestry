@@ -15,7 +15,7 @@ const PageLayout = ({
   isAppFooter = false,
 }: PageLayoutProps) => {
   return (
-    <div className="flex h-full min-h-screen w-full min-w-full flex-col justify-between bg-gray-50">
+    <div className="min-min-h-screen flex h-full w-full min-w-full flex-col justify-between bg-gray-50">
       <Header isWide={isWideHeader} />
       <div className="mx-auto w-full">{children}</div>
       <Footer isTight={isTightFooter} isApp={isAppFooter} />

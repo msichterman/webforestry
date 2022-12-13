@@ -1,6 +1,6 @@
 function FullPageSpinner() {
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen min-h-screen w-full">
       <div className="flex h-full items-center justify-center">
         <div role="status" className="mx-auto">
           <svg
