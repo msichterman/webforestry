@@ -25,7 +25,7 @@ const Trees: NextPage = () => {
             <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
               <div>
                 <div>
-                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-500">
+                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">
                     Let&apos;s grow together
                   </span>
                 </div>

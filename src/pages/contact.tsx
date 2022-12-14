@@ -97,7 +97,7 @@ const Contact: NextPage = () => {
             {/* Contact information */}
             <div className="relative overflow-hidden bg-emerald-600 py-10 px-6 sm:px-10 xl:p-12">
               <div
-                className="pointer-events-none absolute inset-0 sm:hidden"
+                className="pointer-events-none absolute inset-0 z-0 sm:hidden"
                 aria-hidden="true"
               >
                 <svg
@@ -130,7 +130,7 @@ const Contact: NextPage = () => {
                 </svg>
               </div>
               <div
-                className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 sm:block lg:hidden"
+                className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 hidden w-1/2 sm:block lg:hidden"
                 aria-hidden="true"
               >
                 <svg
@@ -163,7 +163,7 @@ const Contact: NextPage = () => {
                 </svg>
               </div>
               <div
-                className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 lg:block"
+                className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 hidden w-1/2 lg:block"
                 aria-hidden="true"
               >
                 <svg
@@ -195,14 +195,14 @@ const Contact: NextPage = () => {
                   </defs>
                 </svg>
               </div>
-              <h3 className="text-2xl font-medium text-white">
+              <h1 className="z-10 text-2xl font-medium text-white">
                 Contact our team
-              </h3>
-              <p className="mt-6 max-w-3xl text-base text-emerald-50">
+              </h1>
+              <p className="z-10 mt-6 max-w-3xl bg-inherit text-base text-emerald-50">
                 Have a question? We&apos;d love to hear from you. Send us a
                 message and we&apos;ll get back to you as soon as possible.
               </p>
-              <dl className="mt-8 space-y-6">
+              <dl className="z-10 mt-8 space-y-6">
                 <dt>
                   <span className="sr-only">Phone number</span>
                 </dt>
@@ -314,13 +314,18 @@ const Contact: NextPage = () => {
 
             {/* Contact form */}
             <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h2
+                className="text-lg font-medium text-gray-900"
+                id="contact-form-label"
+              >
                 Send us a message
-              </h3>
+              </h2>
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                 onBlur={() => clearErrors()}
+                role="group"
+                aria-labelledby="contact-form-label"
               >
                 <div>
                   <label
@@ -339,6 +344,7 @@ const Contact: NextPage = () => {
                         errors.firstName ? "error-input" : "input"
                       )}
                       disabled={isSubmitting}
+                      aria-required={true}
                     />
                     {errors.firstName && (
                       <p
@@ -369,6 +375,7 @@ const Contact: NextPage = () => {
                         errors.lastName ? "error-input" : "input"
                       )}
                       disabled={isSubmitting}
+                      aria-required={true}
                     />
                     {errors.lastName && (
                       <p
@@ -397,6 +404,7 @@ const Contact: NextPage = () => {
                       {...register("email")}
                       className={clsx(errors.email ? "error-input" : "input")}
                       disabled={isSubmitting}
+                      aria-required={true}
                     />
                     {errors.email && (
                       <p
@@ -431,6 +439,7 @@ const Contact: NextPage = () => {
                       className={clsx(errors.phone ? "error-input" : "input")}
                       disabled={isSubmitting}
                       aria-describedby="phone-optional"
+                      aria-required={false}
                     />
                     {errors.phone && (
                       <p
@@ -458,6 +467,7 @@ const Contact: NextPage = () => {
                       {...register("subject")}
                       className={clsx(errors.subject ? "error-input" : "input")}
                       disabled={isSubmitting}
+                      aria-required={true}
                     />
                     {errors.subject && (
                       <p
@@ -492,6 +502,7 @@ const Contact: NextPage = () => {
                       aria-describedby="message-max"
                       defaultValue={""}
                       disabled={isSubmitting}
+                      aria-required={true}
                     />
                     {errors.message && (
                       <p

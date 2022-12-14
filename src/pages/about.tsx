@@ -21,13 +21,13 @@ const About: NextPage = () => {
             <div className="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-3">
               <div>
                 <div>
-                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-500">
+                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">
                     Our origin story
                   </span>
                 </div>
-                <h2 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
                   Web Forestry lets you focus on growing your business
-                </h2>
+                </h1>
               </div>
             </div>
             <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-6">

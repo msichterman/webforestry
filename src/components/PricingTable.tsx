@@ -8,12 +8,12 @@ export default function PricingTable() {
       <div className="relative overflow-hidden pt-32 pb-96 lg:pt-40">
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
           <div className="mx-auto max-w-2xl lg:max-w-4xl">
-            <h2 className="text-lg font-semibold leading-8 text-emerald-400">
+            <h1 className="text-lg font-semibold leading-8 text-emerald-400">
               Pricing
-            </h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-white">
+            </h1>
+            <h2 className="mt-2 text-4xl font-bold tracking-tight text-white">
               Choose the right plan for your business and watch it flourish.
-            </p>
+            </h2>
             <p className="mt-6 text-lg leading-8 text-white/60">
               Fast turnaround. No unnecessary contracts.
             </p>
@@ -59,7 +59,7 @@ export default function PricingTable() {
                   </div>
                   <div className="flex flex-1 flex-col p-2">
                     <div className="flex flex-1 flex-col justify-between rounded-3xl bg-gray-50 p-6 sm:p-8">
-                      <ul role="list" className="space-y-6">
+                      <ul className="space-y-6">
                         {tier.features.map((feature) => (
                           <li key={feature} className="flex items-start">
                             <div className="flex-shrink-0">

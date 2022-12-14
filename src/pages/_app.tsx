@@ -8,11 +8,36 @@ import superjson from "superjson";
 import type { AppRouter } from "@/server/trpc/router";
 import "../styles/globals.css";
 import { Session } from "next-auth";
+import React from "react";
+
+const isServerSideRendered = () => {
+  return typeof window === "undefined";
+};
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  if (process.env.NODE_ENV !== "production" && !isServerSideRendered()) {
+    const axeConfig = {
+      rules: [
+        {
+          id: "landmark-unique",
+          enabled: false,
+        },
+        {
+          id: "region",
+          enabled: false,
+        },
+      ],
+    };
+    import("react-dom").then((ReactDOM) => {
+      import("@axe-core/react").then((axe) => {
+        axe.default(React, ReactDOM, 1000, axeConfig);
+      });
+    });
+  }
+
   return (
     <SessionProvider session={session}>
       <Component {...pageProps} />

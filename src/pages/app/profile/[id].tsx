@@ -42,7 +42,7 @@ export default function Profile() {
                 <img
                   className="mb-3 h-24 w-24 rounded-full shadow-lg"
                   src={user.image || fallbackAvatar(user.name)}
-                  alt="Bonnie image"
+                  alt="The user's profile avatar"
                 />
                 <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                   {user.name}

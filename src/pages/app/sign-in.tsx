@@ -4,6 +4,7 @@ import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import WebForestryIcon from "@/components/svgs/WebForestryIcon";
+import Link from "next/link";
 
 export default function Example() {
   const { data: session, status } = useSession();
@@ -14,17 +15,11 @@ export default function Example() {
 
   type FormSchemaType = z.infer<typeof FormSchema>;
 
-  const {
-    register,
-    handleSubmit,
-    clearErrors,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormSchemaType>({
+  const { handleSubmit, clearErrors } = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
   });
 
-  const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
+  const onSubmit: SubmitHandler<FormSchemaType> = async (/*data*/) => {
     clearErrors();
     // signInWithEmail(data.email)
   };
@@ -74,12 +69,12 @@ export default function Example() {
             )}
             <p className="mt-2 text-sm text-gray-600">
               Or{" "}
-              <a
-                href="#"
+              <Link
+                href="/app/sign-up"
                 className="font-medium text-emerald-600 hover:text-emerald-500"
               >
                 sign up to start working with us today!
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -180,7 +175,7 @@ export default function Example() {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      required
+                      aria-required={true}
                       className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
                     />
                   </div>
