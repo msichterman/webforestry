@@ -30,7 +30,7 @@ const About: NextPage = () => {
                 </h1>
               </div>
             </div>
-            <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+            <div className="mt-12 lg:grid lg:grid-cols-2 lg:gap-6">
               <div className="relative lg:col-start-2 lg:row-start-1">
                 <svg
                   className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"

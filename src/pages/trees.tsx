@@ -25,7 +25,7 @@ const Trees: NextPage = () => {
             <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
               <div>
                 <div>
-                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">
+                  <span className="rounded border border-emerald-600 bg-emerald-50 px-2.5 py-1 text-tiny font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
                     Let&apos;s grow together
                   </span>
                 </div>
@@ -34,7 +34,7 @@ const Trees: NextPage = () => {
                 </h1>
               </div>
             </div>
-            <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-10">
+            <div className="mt-12 lg:grid lg:grid-cols-2 lg:gap-10">
               <div className="relative lg:col-start-2 lg:row-start-1">
                 <svg
                   className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"
@@ -90,7 +90,7 @@ const Trees: NextPage = () => {
                   </figure>
                 </div>
               </div>
-              <div className="prose-zinc prose mt-8 dark:prose-invert lg:mt-0">
+              <div className="prose-zinc prose dark:prose-invert">
                 <div className="mx-auto max-w-prose text-base lg:max-w-none">
                   <p className="text-lg ">
                     So what is the deal with all these dang trees? Well,
@@ -100,7 +100,6 @@ const Trees: NextPage = () => {
                     of domains, serving customers and making impacts on the
                     world in their own ways.
                   </p>
-                  <br />
                   <p className="text-lg ">
                     We deliver value to our clients digitally to help them
                     change the world, but we also want to do our part to
