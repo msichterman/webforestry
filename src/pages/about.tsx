@@ -21,7 +21,7 @@ const About: NextPage = () => {
             <div className="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-3">
               <div>
                 <div>
-                  <span className="rounded border border-emerald-600 bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
+                  <span className="rounded border border-emerald-600 bg-emerald-50 px-2.5 py-1 text-tiny font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
                     Our origin story
                   </span>
                 </div>

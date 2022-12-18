@@ -41,7 +41,7 @@ export default function PricingTable({
                   <div className="p-8 sm:p-10">
                     {tier.badge ? (
                       <div className="h-8">
-                        <div className="box-border w-min animate-pulse whitespace-nowrap rounded-md border border-emerald-600 bg-emerald-100 px-2.5 py-0.5 text-xxs font-semibold text-emerald-600 dark:bg-emerald-800 dark:text-cyan-100">
+                        <div className="box-border w-min animate-pulse whitespace-nowrap rounded-md border border-emerald-600 bg-emerald-100 px-2.5 py-0.5 text-tiny font-semibold text-emerald-600 dark:bg-emerald-800 dark:text-emerald-50">
                           {tier.badge}
                         </div>
                       </div>
