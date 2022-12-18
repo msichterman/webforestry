@@ -77,7 +77,7 @@ const Home: NextPage = () => {
             <div>
               <div className="mt-12">
                 <div>
-                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
+                  <span className="rounded border border-emerald-600 bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
                     Welcome to the jungle
                   </span>
                 </div>
