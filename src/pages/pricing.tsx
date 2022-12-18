@@ -1,11 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/future/image";
 import React from "react";
 import PageLayout from "@/layouts/PageLayout";
 import PricingTable from "@/components/PricingTable";
-import DinklageLogo from "../../public/img/dinklage-gray.png";
-import BeefJurgyLogo from "../../public/img/beef-jurgy-gray.png";
+import LogoCloud from "@/components/LogoCloud";
 
 const Pricing: NextPage = () => {
   const faqs = [
@@ -70,28 +68,7 @@ const Pricing: NextPage = () => {
         <PricingTable />
 
         {/* Logo cloud */}
-        <section className="bg-emerald-700 py-12 px-4 sm:px-6 lg:py-32 lg:px-8">
-          <div className="relative mx-auto grid h-full w-full max-w-2xl grid-cols-2 gap-8">
-            <div className="relative col-span-1 flex h-16 justify-center md:h-24">
-              <Image
-                src={DinklageLogo}
-                alt="Dinklage Feed Yards"
-                className="object-contain brightness-200"
-                sizes="100vw"
-                fill
-              />
-            </div>
-            <div className="relative col-span-1 flex justify-center">
-              <Image
-                src={BeefJurgyLogo}
-                alt="Beef Jurgy"
-                className="object-contain brightness-200"
-                sizes="100vw"
-                fill
-              />
-            </div>
-          </div>
-        </section>
+        <LogoCloud />
 
         {/* FAQs */}
         <section aria-labelledby="faq-heading" className="bg-zinc-900">

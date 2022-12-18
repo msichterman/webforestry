@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import ResultBadge from "@/components/ResultBadge";
 import clsx from "clsx";
 import { GET_STARTED, TALK_SOON } from "@/utils/constants";
+import LogoCloud from "@/components/LogoCloud";
 
 const stats = [
   { label: "Founded", value: "2022" },
@@ -359,6 +360,8 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+
+        <LogoCloud />
 
         <PricingTable firstHeadingComponent="h2" secondHeadingComponent="h3" />
 
