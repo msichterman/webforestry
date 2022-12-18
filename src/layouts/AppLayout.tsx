@@ -65,7 +65,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+                  <div className="fixed inset-0 bg-zinc-600 bg-opacity-75" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 z-40 flex">
@@ -91,12 +91,12 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                         <div className="absolute top-0 right-0 -mr-12 pt-2">
                           <button
                             type="button"
-                            className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-zinc-50"
                             onClick={() => setSidebarOpen(false)}
                           >
                             <span className="sr-only">Close sidebar</span>
                             <XMarkIcon
-                              className="h-6 w-6 text-white"
+                              className="h-6 w-6 text-zinc-50"
                               aria-hidden="true"
                             />
                           </button>
@@ -119,11 +119,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                                   href={item.to}
                                   className={clsx(
                                     "group flex items-center rounded-md px-2 py-2 text-sm font-medium",
-                                    "text-white hover:bg-emerald-600 hover:bg-opacity-75"
+                                    "text-zinc-50 hover:bg-emerald-600 hover:bg-opacity-75"
                                   )}
                                   activeClassName={clsx(
                                     "group flex items-center px-2 py-2 text-sm font-medium rounded-md",
-                                    "bg-emerald-800 text-white"
+                                    "bg-emerald-800 text-zinc-50"
                                   )}
                                 >
                                   <item.icon
@@ -139,7 +139,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                         <div className="px-2">
                           <button
                             onClick={() => signOut()}
-                            className="block w-full rounded-md border border-transparent bg-emerald-800 px-2 py-2 text-xs font-medium uppercase text-emerald-50 shadow hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-100 focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
+                            className="block w-full rounded-md border border-transparent bg-emerald-800 px-2 py-2 text-xs font-medium uppercase text-emerald-50 shadow hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-100 focus:ring-offset-2 focus:ring-offset-emerald-600 sm:px-10"
                           >
                             Sign out
                           </button>
@@ -160,10 +160,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                               />
                             </div>
                             <div className="ml-3">
-                              <p className="text-base font-medium text-white">
+                              <p className="text-base font-medium text-zinc-50">
                                 {user?.name}
                               </p>
-                              <p className="text-sm font-medium text-emerald-200 group-hover:text-white">
+                              <p className="text-sm font-medium text-emerald-200 group-hover:text-zinc-50">
                                 View profile
                               </p>
                             </div>
@@ -200,11 +200,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                           href={item.to}
                           className={clsx(
                             "group flex items-center rounded-md px-2 py-2 text-sm font-medium",
-                            "text-white hover:bg-emerald-600 hover:bg-opacity-75"
+                            "text-zinc-50 hover:bg-emerald-600 hover:bg-opacity-75"
                           )}
                           activeClassName={clsx(
                             "group flex items-center px-2 py-2 text-sm font-medium rounded-md",
-                            "bg-emerald-800 text-white"
+                            "bg-emerald-800 text-zinc-50"
                           )}
                         >
                           <item.icon
@@ -220,7 +220,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   <div className="px-2">
                     <button
                       onClick={() => signOut()}
-                      className="block w-full rounded-md border border-transparent bg-emerald-800 px-2 py-2 text-xs font-medium uppercase text-emerald-50 shadow hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-100 focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
+                      className="block w-full rounded-md border border-transparent bg-emerald-800 px-2 py-2 text-xs font-medium uppercase text-emerald-50 shadow hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-100 focus:ring-offset-2 focus:ring-offset-emerald-600 sm:px-10"
                     >
                       Sign out
                     </button>
@@ -241,10 +241,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                         />
                       </div>
                       <div className="ml-3">
-                        <p className="text-sm font-medium text-white">
+                        <p className="text-sm font-medium text-zinc-50">
                           {user?.name}
                         </p>
-                        <p className="text-xs font-medium text-emerald-200 group-hover:text-white">
+                        <p className="text-xs font-medium text-emerald-200 group-hover:text-zinc-50">
                           View profile
                         </p>
                       </div>
@@ -254,10 +254,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               </div>
             </div>
             <div className="flex h-full flex-col md:pl-64">
-              <div className="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
+              <div className="sticky top-0 z-10 bg-zinc-100 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
                 <button
                   type="button"
-                  className="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500"
+                  className="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-zinc-500 hover:text-zinc-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-600"
                   onClick={() => setSidebarOpen(true)}
                 >
                   <span className="sr-only">Open sidebar</span>

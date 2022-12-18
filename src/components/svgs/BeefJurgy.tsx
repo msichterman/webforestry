@@ -1,6 +1,6 @@
-import { UnknownObject } from "@/utils/typeUtils";
+import { SVGProps } from "react";
 
-const BeefJurgy = (props: UnknownObject) => (
+const BeefJurgy = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="90"
     height="50"

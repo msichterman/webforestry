@@ -8,7 +8,7 @@ import ExternalLink from "@/components/utils/ExternalLink";
 
 const Trees: NextPage = () => {
   return (
-    <PageLayout>
+    <PageLayout isTightFooter>
       <Head>
         <title>Web Forestry – Trees</title>
         <meta
@@ -21,7 +21,7 @@ const Trees: NextPage = () => {
       <main>
         <div className="overflow-hidden">
           <div className="relative mx-auto max-w-7xl py-24 px-4 sm:px-6 lg:px-8">
-            <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
+            <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-neutral-100 dark:bg-zinc-900 lg:block" />
             <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
               <div>
                 <div>
@@ -29,9 +29,9 @@ const Trees: NextPage = () => {
                     Let&apos;s grow together
                   </span>
                 </div>
-                <h2 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                <h1 className="mt-4 text-3xl font-extrabold leading-8 tracking-tight text-zinc-900  dark:text-caramel-100 sm:text-4xl">
                   Web Forestry has teamed up with Team Trees
-                </h2>
+                </h1>
               </div>
             </div>
             <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-10">
@@ -58,7 +58,7 @@ const Trees: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200"
                         fill="currentColor"
                       />
                     </pattern>
@@ -80,9 +80,9 @@ const Trees: NextPage = () => {
                         height={1376}
                       />
                     </div>
-                    <figcaption className="mt-3 flex text-sm text-gray-500">
+                    <figcaption className="mt-3 flex text-sm ">
                       <CameraIcon
-                        className="h-5 w-5 flex-none text-gray-400"
+                        className="h-5 w-5 flex-none text-zinc-400"
                         aria-hidden="true"
                       />
                       <span className="ml-2">Photograph by Luca Bravo</span>
@@ -90,9 +90,9 @@ const Trees: NextPage = () => {
                   </figure>
                 </div>
               </div>
-              <div className="mt-8 lg:mt-0">
+              <div className="prose-zinc prose mt-8 dark:prose-invert lg:mt-0">
                 <div className="mx-auto max-w-prose text-base lg:max-w-none">
-                  <p className="text-lg text-gray-500">
+                  <p className="text-lg ">
                     So what is the deal with all these dang trees? Well,
                     we&apos;re committed to not only building you beautiful
                     websites that will grow with your business but also to
@@ -101,14 +101,14 @@ const Trees: NextPage = () => {
                     world in their own ways.
                   </p>
                   <br />
-                  <p className="text-lg text-gray-500">
+                  <p className="text-lg ">
                     We deliver value to our clients digitally to help them
                     change the world, but we also want to do our part to
                     directly help the physical world. To do so, a portion of our
                     revenue goes towards planting trees with the team over at{" "}
                     <ExternalLink
-                      to="https://teamtrees.org/"
-                      className="text-emerald-500 hover:text-emerald-700"
+                      href="https://teamtrees.org/"
+                      className="text-emerald-600 hover:text-emerald-700"
                     >
                       #teamtrees
                     </ExternalLink>

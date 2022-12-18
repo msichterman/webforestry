@@ -7,7 +7,7 @@ import Image from "next/future/image";
 
 const About: NextPage = () => {
   return (
-    <PageLayout>
+    <PageLayout isTightFooter>
       <Head>
         <title>Web Forestry – About</title>
         <meta name="description" content="Learn more about Web Forestry" />
@@ -17,20 +17,20 @@ const About: NextPage = () => {
       <main>
         <div className="overflow-hidden">
           <div className="relative mx-auto max-w-7xl py-24 px-4 sm:px-6 lg:px-8">
-            <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
+            <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-neutral-100 dark:bg-zinc-900 lg:block" />
             <div className="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-3">
               <div>
                 <div>
-                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">
+                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
                     Our origin story
                   </span>
                 </div>
-                <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                <h1 className="mt-4 text-3xl font-extrabold leading-8 tracking-tight text-zinc-900  dark:text-caramel-100 sm:text-4xl">
                   Web Forestry lets you focus on growing your business
                 </h1>
               </div>
             </div>
-            <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-6">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-6">
               <div className="relative lg:col-start-2 lg:row-start-1">
                 <svg
                   className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"
@@ -54,7 +54,7 @@ const About: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200"
                         fill="currentColor"
                       />
                     </pattern>
@@ -76,9 +76,9 @@ const About: NextPage = () => {
                         height={1376}
                       />
                     </div>
-                    <figcaption className="mt-3 flex text-sm text-gray-500">
+                    <figcaption className="mt-3 flex text-sm ">
                       <CameraIcon
-                        className="h-5 w-5 flex-none text-gray-400"
+                        className="h-5 w-5 flex-none text-zinc-400"
                         aria-hidden="true"
                       />
                       <span className="ml-2">Photograph by Luca Bravo</span>
@@ -86,9 +86,9 @@ const About: NextPage = () => {
                   </figure>
                 </div>
               </div>
-              <div className="mt-8 lg:mt-0">
+              <div className="lg:prose-lg prose-zinc prose dark:prose-invert">
                 <div className="mx-auto text-base lg:max-w-none">
-                  <p className="text-lg text-gray-500">
+                  <p className="text-lg ">
                     In the summer of 2020, Dinklage Feed Yards was in dire need
                     of a website developer when the Wordpress website powering
                     their business went down suddenly. Their existing website
@@ -96,7 +96,7 @@ const About: NextPage = () => {
                     stuck.
                   </p>
                 </div>
-                <div className="mx-auto mt-5 text-gray-500 lg:col-start-1 lg:row-start-1 lg:max-w-none">
+                <div className="mx-auto lg:col-start-1 lg:row-start-1 lg:max-w-none">
                   <p>
                     After debugging through the site, the problem was quickly
                     resolved and Dinklage Feed Yards was back in business. With
@@ -105,7 +105,7 @@ const About: NextPage = () => {
                     website – not only for Dinklage Feed Yards customers but
                     also for employees at Dinklage managing the site.
                   </p>
-                  <br />
+
                   <p>
                     Fast forward to the spring of 2022. Dinklage continued to
                     request one-off website maintenance over the years, but this
@@ -116,9 +116,9 @@ const About: NextPage = () => {
                     developer, a website hosting misunderstanding resulted in
                     Dinklage Feed Yards back at square zero with their website.
                   </p>
-                  <br />
+
                   <p>That&apos;s where we came in.</p>
-                  <br />
+
                   <p>
                     Within 30 days, we completely rebuilt the Dinklage Feed
                     Yards website from the ground up, using cutting-edge
@@ -131,7 +131,7 @@ const About: NextPage = () => {
                     their website content, manage job postings, maintain feed
                     yard contacts, and more.
                   </p>
-                  <br />
+
                   <p>
                     Through working with Dinklage Feed Yards, our eyes were
                     opened to this one point:{" "}
@@ -140,7 +140,7 @@ const About: NextPage = () => {
                       with you.
                     </strong>
                   </p>
-                  <br />
+
                   <p>
                     Here at Web Forestry, we are committed to helping businesses
                     like Dinklage Feed Yards – so that you can focus on your

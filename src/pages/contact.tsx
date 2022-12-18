@@ -1,9 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { ElementType } from "react";
 import PageLayout from "../layouts/PageLayout";
 import { z } from "zod";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {
+  FieldErrorsImpl,
+  FieldValues,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ExternalLink from "../components/utils/ExternalLink";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
@@ -13,6 +18,80 @@ import { trpc } from "@/utils/trpc";
 import ResultBadge from "@/components/ResultBadge";
 import { useRouter } from "next/router";
 import { GET_STARTED, REPORT_ERROR, TALK_SOON } from "@/utils/constants";
+import { UnknownObject } from "@/utils/typeUtils";
+
+type FormInputProps = {
+  id: string;
+  type?: string;
+  autoComplete?: string;
+  label: string;
+  errors: Partial<FieldErrorsImpl<FieldValues>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register: (id: any) => any;
+  max?: number;
+  isRequired?: boolean;
+  isDisabled?: boolean;
+  wrapperClassName?: string;
+  placeholder?: string;
+  as?: ElementType;
+  asProps?: UnknownObject;
+};
+
+const FormInput = ({
+  id,
+  type = undefined,
+  autoComplete = "off",
+  label,
+  errors,
+  register,
+  max = undefined,
+  isRequired = false,
+  isDisabled = false,
+  wrapperClassName = "",
+  as: C = "input",
+  placeholder = "",
+  asProps = {},
+}: FormInputProps) => (
+  <div className={wrapperClassName}>
+    <div className="flex justify-between">
+      <label
+        htmlFor={id}
+        className={clsx(errors[id] ? "error-label" : "label")}
+      >
+        {label}
+      </label>
+      {!isRequired && (
+        <span id={`${id}-optional`} className="text-sm text-zinc-500">
+          Optional
+        </span>
+      )}
+      {max && (
+        <span id={`${id}-max`} className="text-sm text-zinc-500">
+          Max. {max} characters
+        </span>
+      )}
+    </div>
+    <div className="mt-1">
+      <C
+        type={type}
+        id={id}
+        autoComplete={autoComplete}
+        {...register(id)}
+        className={clsx(errors[id] ? "error-input" : "input")}
+        disabled={isDisabled}
+        aria-required={isRequired}
+        required={isRequired}
+        placeholder={placeholder}
+        {...asProps}
+      />
+      {errors[id]?.message && (
+        <p className={clsx("error-label", "mt-1 text-xxs leading-4")}>
+          {errors[id]?.message as string}
+        </p>
+      )}
+    </div>
+  </div>
+);
 
 const Contact: NextPage = () => {
   const FormSchema = z.object({
@@ -90,9 +169,7 @@ const Contact: NextPage = () => {
       </Head>
 
       <main>
-        <div className="relative bg-white">
-          <h2 className="sr-only">Contact us</h2>
-
+        <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-3">
             {/* Contact information */}
             <div className="relative overflow-hidden bg-emerald-600 py-10 px-6 sm:px-10 xl:p-12">
@@ -195,7 +272,7 @@ const Contact: NextPage = () => {
                   </defs>
                 </svg>
               </div>
-              <h1 className="z-10 text-2xl font-medium text-white">
+              <h1 className="z-10 text-2xl font-medium text-zinc-50">
                 Contact our team
               </h1>
               <p className="z-10 mt-6 max-w-3xl bg-inherit text-base text-emerald-50">
@@ -211,10 +288,7 @@ const Contact: NextPage = () => {
                     className="h-6 w-6 flex-shrink-0 text-emerald-200"
                     aria-hidden="true"
                   />
-                  <ExternalLink
-                    to="tel:+15133415337"
-                    className="ml-3 cursor-pointer"
-                  >
+                  <ExternalLink href="tel:+15133415337" className="ml-3">
                     (513) 341-5337
                   </ExternalLink>
                 </dd>
@@ -227,8 +301,8 @@ const Contact: NextPage = () => {
                     aria-hidden="true"
                   />
                   <ExternalLink
-                    to="mailto:contact@webforestry.com"
-                    className="ml-3 cursor-pointer"
+                    href="mailto:contact@webforestry.com"
+                    className="ml-3"
                   >
                     contact@webforestry.com
                   </ExternalLink>
@@ -238,7 +312,7 @@ const Contact: NextPage = () => {
                 <li>
                   <ExternalLink
                     className="text-emerald-200 hover:text-emerald-100"
-                    to="https://twitter.com/mattsichterman"
+                    href="https://twitter.com/mattsichterman"
                   >
                     <>
                       <span className="sr-only">Twitter</span>
@@ -262,7 +336,7 @@ const Contact: NextPage = () => {
                 <li>
                   <ExternalLink
                     className="text-emerald-200 hover:text-emerald-100"
-                    to="https://instagram.com/mattsichterman"
+                    href="https://instagram.com/mattsichterman"
                   >
                     <>
                       <span className="sr-only">Instagram</span>
@@ -286,7 +360,7 @@ const Contact: NextPage = () => {
                 <li>
                   <ExternalLink
                     className="text-emerald-200 hover:text-emerald-100"
-                    to="https://www.facebook.com/msichterman"
+                    href="https://www.facebook.com/msichterman"
                   >
                     <>
                       <span className="sr-only">Facebook</span>
@@ -315,7 +389,7 @@ const Contact: NextPage = () => {
             {/* Contact form */}
             <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
               <h2
-                className="text-lg font-medium text-gray-900"
+                className="text-lg font-medium text-zinc-900  dark:text-caramel-100"
                 id="contact-form-label"
               >
                 Send us a message
@@ -324,198 +398,79 @@ const Contact: NextPage = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                 onBlur={() => clearErrors()}
-                role="group"
                 aria-labelledby="contact-form-label"
               >
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className={clsx(errors.firstName ? "error-label" : "label")}
-                  >
-                    First name
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type="text"
-                      id="firstName"
-                      autoComplete="given-name"
-                      {...register("firstName")}
-                      className={clsx(
-                        errors.firstName ? "error-input" : "input"
-                      )}
-                      disabled={isSubmitting}
-                      aria-required={true}
-                    />
-                    {errors.firstName && (
-                      <p
-                        className={clsx(
-                          "error-label",
-                          "mt-1 text-xxs leading-4"
-                        )}
-                      >
-                        {errors.firstName.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className={clsx(errors.lastName ? "error-label" : "label")}
-                  >
-                    Last name
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type="text"
-                      id="lastName"
-                      {...register("lastName")}
-                      autoComplete="family-name"
-                      className={clsx(
-                        errors.lastName ? "error-input" : "input"
-                      )}
-                      disabled={isSubmitting}
-                      aria-required={true}
-                    />
-                    {errors.lastName && (
-                      <p
-                        className={clsx(
-                          "error-label",
-                          "mt-1 text-xxs leading-4"
-                        )}
-                      >
-                        {errors.lastName.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className={clsx(errors.email ? "error-label" : "label")}
-                  >
-                    Email
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      id="email"
-                      type="email"
-                      autoComplete="email"
-                      {...register("email")}
-                      className={clsx(errors.email ? "error-input" : "input")}
-                      disabled={isSubmitting}
-                      aria-required={true}
-                    />
-                    {errors.email && (
-                      <p
-                        className={clsx(
-                          "error-label",
-                          "mt-1 text-xxs leading-4"
-                        )}
-                      >
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between">
-                    <label
-                      htmlFor="phone"
-                      className={clsx(errors.phone ? "error-label" : "label")}
-                    >
-                      Phone
-                    </label>
-                    <span id="phone-optional" className="text-sm text-gray-500">
-                      Optional
-                    </span>
-                  </div>
-                  <div className="mt-1">
-                    <input
-                      type="text"
-                      id="phone"
-                      autoComplete="tel"
-                      {...register("phone")}
-                      className={clsx(errors.phone ? "error-input" : "input")}
-                      disabled={isSubmitting}
-                      aria-describedby="phone-optional"
-                      aria-required={false}
-                    />
-                    {errors.phone && (
-                      <p
-                        className={clsx(
-                          "error-label",
-                          "mt-1 text-xxs leading-4"
-                        )}
-                      >
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <label
-                    htmlFor="subject"
-                    className={clsx(errors.subject ? "error-label" : "label")}
-                  >
-                    Subject
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type="text"
-                      id="subject"
-                      {...register("subject")}
-                      className={clsx(errors.subject ? "error-input" : "input")}
-                      disabled={isSubmitting}
-                      aria-required={true}
-                    />
-                    {errors.subject && (
-                      <p
-                        className={clsx(
-                          "error-label",
-                          "mt-1 text-xxs leading-4"
-                        )}
-                      >
-                        {errors.subject.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <div className="flex justify-between">
-                    <label
-                      htmlFor="message"
-                      className={clsx(errors.message ? "error-label" : "label")}
-                    >
-                      Message
-                    </label>
-                    <span id="message-max" className="text-sm text-gray-500">
-                      Max. 500 characters
-                    </span>
-                  </div>
-                  <div className="mt-1">
-                    <textarea
-                      id="message"
-                      rows={4}
-                      {...register("message")}
-                      className={clsx(errors.message ? "error-input" : "input")}
-                      aria-describedby="message-max"
-                      defaultValue={""}
-                      disabled={isSubmitting}
-                      aria-required={true}
-                    />
-                    {errors.message && (
-                      <p
-                        className={clsx(
-                          "error-label",
-                          "mt-1 text-xxs leading-4"
-                        )}
-                      >
-                        {errors.message.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                <FormInput
+                  id="firstName"
+                  type="text"
+                  autoComplete="given-name"
+                  label="First name"
+                  placeholder="John"
+                  errors={errors}
+                  register={register}
+                  isRequired={true}
+                  isDisabled={isSubmitting}
+                />
+                <FormInput
+                  id="lastName"
+                  type="text"
+                  autoComplete="family-name"
+                  label="Last name"
+                  placeholder="Doe"
+                  errors={errors}
+                  register={register}
+                  isRequired={true}
+                  isDisabled={isSubmitting}
+                />
+                <FormInput
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  label="Email"
+                  placeholder="john@example.com"
+                  errors={errors}
+                  register={register}
+                  isRequired={true}
+                  isDisabled={isSubmitting}
+                />
+                <FormInput
+                  id="phone"
+                  type="text"
+                  autoComplete="tel"
+                  label="Phone"
+                  placeholder="111-222-3333"
+                  errors={errors}
+                  register={register}
+                  isRequired={false}
+                  isDisabled={isSubmitting}
+                />
+                <FormInput
+                  id="subject"
+                  type="text"
+                  label="Subject"
+                  placeholder="What is the subject"
+                  errors={errors}
+                  register={register}
+                  isRequired={true}
+                  isDisabled={isSubmitting}
+                  wrapperClassName="sm:col-span-2"
+                />
+                <FormInput
+                  id="message"
+                  as="textarea"
+                  asProps={{
+                    rows: 4,
+                    defaultValue: "",
+                  }}
+                  label="Message"
+                  placeholder="Type your message"
+                  errors={errors}
+                  register={register}
+                  isRequired={true}
+                  max={500}
+                  isDisabled={isSubmitting}
+                  wrapperClassName="sm:col-span-2"
+                />
                 <div className="flex justify-end sm:col-span-2">
                   <ResultBadge
                     isError={contact.isError}
@@ -531,7 +486,7 @@ const Contact: NextPage = () => {
                     type="submit"
                     disabled={isSubmitting}
                     className={clsx(
-                      "mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-emerald-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:w-auto lg:mt-0",
+                      "mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-emerald-600 px-6 py-3 text-base font-medium text-zinc-50 shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 sm:w-auto lg:mt-0",
                       contact.isLoading && "animate-pulse"
                     )}
                   >

@@ -20,16 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   if (process.env.NODE_ENV !== "production" && !isServerSideRendered()) {
     const axeConfig = {
-      rules: [
-        {
-          id: "landmark-unique",
-          enabled: false,
-        },
-        {
-          id: "region",
-          enabled: false,
-        },
-      ],
+      rules: [],
     };
     import("react-dom").then((ReactDOM) => {
       import("@axe-core/react").then((axe) => {

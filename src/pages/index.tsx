@@ -77,22 +77,22 @@ const Home: NextPage = () => {
             <div>
               <div className="mt-12">
                 <div>
-                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">
+                  <span className="rounded bg-emerald-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-800/60 dark:text-caramel-100">
                     Welcome to the jungle
                   </span>
                 </div>
-                <div className="mt-6 sm:max-w-xl">
-                  <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:font-extrabold">
+                <div className="mt-6">
+                  <h1 className="text-3xl font-bold text-zinc-900  dark:text-caramel-100 sm:text-4xl lg:text-5xl lg:font-extrabold">
                     Website development for growing businesses
                   </h1>
-                  <p className="mt-6 text-xl text-gray-500">
+                  <p className="mt-6 text-xl dark:text-caramel-200">
                     Creating, managing, planting, conserving, and repairing your
                     websites so you don&apos;t have to.
                   </p>
                 </div>
                 <form
                   onSubmit={getStartedForm.handleSubmit(onGetStartedSubmit)}
-                  className="mt-12 sm:w-full sm:max-w-lg"
+                  className="mt-12"
                 >
                   <div className="sm:flex">
                     <div className="min-w-0 flex-1">
@@ -117,7 +117,7 @@ const Home: NextPage = () => {
                     <div className="mt-4 sm:mt-0 sm:ml-3">
                       <button
                         type="submit"
-                        className="block w-full rounded-md border border-transparent bg-emerald-500 px-5 py-3 text-base font-medium text-white shadow hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:px-10"
+                        className="block w-full rounded-md border border-transparent bg-emerald-600 px-5 py-3 text-base font-medium text-zinc-50 shadow hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 sm:px-10"
                         disabled={getStartedForm.formState.isSubmitting}
                       >
                         Let&apos;s get started
@@ -131,7 +131,7 @@ const Home: NextPage = () => {
                   />
                 </form>
                 <div className="mt-6">
-                  <div className="inline-flex items-center divide-x divide-gray-300">
+                  <div className="inline-flex items-center divide-x divide-zinc-300">
                     <div className="flex flex-shrink-0 pr-5">
                       <StarIcon
                         className="h-5 w-5 text-yellow-400"
@@ -154,8 +154,8 @@ const Home: NextPage = () => {
                         aria-hidden="true"
                       />
                     </div>
-                    <div className="min-w-0 flex-1 py-1 pl-5 text-sm text-gray-500 sm:py-3">
-                      <span className="font-medium text-gray-900">
+                    <div className="min-w-0 flex-1 py-1 pl-5 text-sm dark:text-caramel-200 sm:py-3">
+                      <span className="font-medium text-zinc-900  dark:text-caramel-100">
                         Rated 5 stars
                       </span>{" "}
                       by our clients
@@ -169,7 +169,7 @@ const Home: NextPage = () => {
           <div className="hidden sm:mx-auto sm:max-w-3xl sm:px-6 lg:block">
             <div className="pt-12 sm:relative sm:mt-12 sm:pt-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
               <div>
-                <div className="absolute inset-y-0 left-1/2 w-screen rounded-l-3xl bg-gray-50 lg:left-80 lg:right-0 lg:w-full" />
+                <div className="absolute inset-y-0 left-1/2 w-screen rounded-l-3xl bg-zinc-50 dark:bg-zinc-900/50 lg:left-80 lg:right-0 lg:w-full" />
                 <svg
                   className="absolute top-8 right-1/2 -mr-3 lg:left-0 lg:m-0"
                   width={404}
@@ -191,7 +191,7 @@ const Home: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200"
                         fill="currentColor"
                       />
                     </pattern>
@@ -222,7 +222,7 @@ const Home: NextPage = () => {
                 aria-hidden="true"
                 className="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
               >
-                <div className="absolute inset-y-0 right-1/2 w-full rounded-r-3xl bg-gray-50 lg:right-72" />
+                <div className="absolute inset-y-0 right-1/2 w-full rounded-r-3xl bg-zinc-50 dark:bg-zinc-900/50 lg:right-72" />
                 <svg
                   className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
                   width={404}
@@ -244,7 +244,7 @@ const Home: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200"
                         fill="currentColor"
                       />
                     </pattern>
@@ -258,22 +258,22 @@ const Home: NextPage = () => {
               </div>
               <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
                 {/* Testimonial card*/}
-                <div className="relative overflow-hidden rounded-3xl pt-64 pb-10">
+                <div className="relative overflow-hidden rounded-3xl pt-64">
                   <Image
                     className="absolute inset-0 h-full w-full object-cover grayscale"
                     src={BeefJurgy}
                     alt=""
                   />
-                  <div className="absolute inset-0 bg-emerald-500 mix-blend-multiply" />
-                  <div className="bg-gradient-to-t absolute inset-0 from-emerald-600 via-emerald-600 opacity-50" />
-                  <div className="relative px-8">
+                  <div className="absolute inset-0 bg-emerald-600 mix-blend-multiply" />
+                  <div className="bg-gradient-to-t absolute inset-0 from-emerald-700 via-emerald-700 opacity-50" />
+                  <div className="relative bg-zinc-900/50 px-8 py-5">
                     <div className="w-36">
                       <BeefJurgySvg className="h-full w-full drop-shadow-2xl" />
                     </div>
                     <blockquote className="mt-8">
-                      <div className="relative text-lg font-medium text-white md:flex-grow">
+                      <div className="relative text-lg font-medium text-zinc-50 md:flex-grow">
                         <svg
-                          className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-emerald-400"
+                          className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-emerald-700"
                           fill="currentColor"
                           viewBox="0 0 32 32"
                           aria-hidden="true"
@@ -294,7 +294,7 @@ const Home: NextPage = () => {
                           <span className="text-xs font-normal">
                             Founder of{" "}
                             <ExternalLink
-                              to="https://beefjurgy.com/"
+                              href="https://beefjurgy.com/"
                               className="font-bold"
                             >
                               Beef Jurgy
@@ -312,10 +312,10 @@ const Home: NextPage = () => {
             <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
               {/* Content area */}
               <div className="pt-12 sm:pt-16 lg:pt-20">
-                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900  dark:text-caramel-100 sm:text-4xl">
                   Grow your business and make the world a better place
                 </h2>
-                <div className="mt-6 space-y-6 text-base leading-7 text-gray-500">
+                <div className="mt-6 space-y-6 text-base leading-7 dark:text-caramel-200">
                   At Web Forestry, we believe that the best way for you to grow
                   your business is to build an online presence without:
                   <ul className="my-4 list-inside list-disc text-sm">
@@ -336,12 +336,12 @@ const Home: NextPage = () => {
                   {stats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="border-t-2 border-gray-100 pt-6"
+                      className="border-t-2 border-zinc-500/10 pt-6 dark:border-caramel-200/10"
                     >
-                      <dt className="text-base font-medium text-gray-500">
+                      <dt className="text-base font-medium dark:text-caramel-50">
                         {stat.label}
                       </dt>
-                      <dd className="text-3xl font-extrabold tracking-tight text-gray-900">
+                      <dd className="text-3xl font-extrabold tracking-tight text-zinc-900  dark:text-caramel-100">
                         {stat.value}
                       </dd>
                     </div>
@@ -349,7 +349,7 @@ const Home: NextPage = () => {
                 </dl>
                 <div className="mt-10">
                   <Link href="trees">
-                    <span className="text-base font-medium text-emerald-500">
+                    <span className="text-base font-medium text-emerald-600 dark:text-cyan-400">
                       Together we will actually plant trees? See how
                       &nbsp;&rarr;
                     </span>
@@ -360,12 +360,12 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <PricingTable />
+        <PricingTable firstHeadingComponent="h2" secondHeadingComponent="h3" />
 
         {/* CTA section */}
         <div className="relative mt-24 sm:mt-32 sm:py-16">
           <div aria-hidden="true" className="hidden sm:block">
-            <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-gray-50" />
+            <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-zinc-50 dark:bg-zinc-900/50" />
             <svg
               className="absolute top-8 left-1/2 -ml-3"
               width={404}
@@ -387,7 +387,7 @@ const Home: NextPage = () => {
                     y={0}
                     width={4}
                     height={4}
-                    className="text-gray-200"
+                    className="text-zinc-200"
                     fill="currentColor"
                   />
                 </pattern>
@@ -400,7 +400,7 @@ const Home: NextPage = () => {
             </svg>
           </div>
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl bg-emerald-500 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
+            <div className="relative overflow-hidden rounded-3xl bg-emerald-600 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"
@@ -418,7 +418,7 @@ const Home: NextPage = () => {
                     d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
                   />
                   <path
-                    className="text-emerald-600 text-opacity-40"
+                    className="text-emerald-700 text-opacity-40"
                     fill="currentColor"
                     d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
                   />
@@ -426,7 +426,7 @@ const Home: NextPage = () => {
               </div>
               <div className="relative">
                 <div className="sm:text-center">
-                  <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-zinc-50 sm:text-4xl">
                     Not convinced to start building with us today?
                   </h2>
                   <p className="mx-auto mt-6 max-w-2xl text-lg text-emerald-100">
@@ -461,7 +461,7 @@ const Home: NextPage = () => {
                     <div className="mt-4 sm:mt-0 sm:ml-3">
                       <button
                         type="submit"
-                        className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-500 sm:px-10"
+                        className="block w-full rounded-md border border-transparent bg-zinc-900 px-5 py-3 text-base font-medium text-zinc-50 shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-zinc-50 focus:ring-offset-2 focus:ring-offset-emerald-600 sm:px-10"
                       >
                         Let&apos;s talk soon
                       </button>

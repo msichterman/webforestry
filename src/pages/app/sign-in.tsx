@@ -31,7 +31,7 @@ export default function Example() {
           <div role="status" className="mx-auto">
             <svg
               aria-hidden="true"
-              className="mr-2 h-8 w-8 animate-spin fill-emerald-400 text-gray-200 dark:text-gray-600"
+              className="mr-2 h-8 w-8 animate-spin fill-emerald-400 text-zinc-200 dark:text-zinc-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -63,15 +63,15 @@ export default function Example() {
             {session ? (
               <h2>hi {session.user?.name}</h2>
             ) : (
-              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="mt-6 text-3xl font-bold tracking-tight text-zinc-900  dark:text-caramel-100">
                 Sign in to your account
               </h2>
             )}
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-zinc-600 dark:text-caramel-200">
               Or{" "}
               <Link
                 href="/app/sign-up"
-                className="font-medium text-emerald-600 hover:text-emerald-500"
+                className="font-medium text-emerald-600 hover:text-emerald-600"
               >
                 sign up to start working with us today!
               </Link>
@@ -81,7 +81,7 @@ export default function Example() {
           <div className="mt-8">
             <div>
               <div>
-                <p className="text-sm font-medium text-gray-700">
+                <p className="text-sm font-medium text-zinc-700">
                   Sign in with
                 </p>
 
@@ -89,7 +89,7 @@ export default function Example() {
                   <div>
                     <button
                       onClick={() => signIn("google")}
-                      className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                      className="inline-flex w-full justify-center rounded-md border border-zinc-300 bg-zinc-50 py-2 px-4 text-sm font-medium text-zinc-500 shadow-sm hover:bg-zinc-50 dark:bg-zinc-900/80 dark:bg-zinc-900/80"
                     >
                       <span className="sr-only">Sign in with Google</span>
                       <svg
@@ -105,7 +105,7 @@ export default function Example() {
                   <div>
                     <button
                       onClick={() => signIn("twitter")}
-                      className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                      className="inline-flex w-full justify-center rounded-md border border-zinc-300 bg-zinc-50 py-2 px-4 text-sm font-medium text-zinc-500 shadow-sm hover:bg-zinc-50 dark:bg-zinc-900/80 dark:bg-zinc-900/80"
                     >
                       <span className="sr-only">Sign in with Twitter</span>
                       <svg
@@ -121,7 +121,7 @@ export default function Example() {
                   <div>
                     <button
                       onClick={() => signIn("linkedin")}
-                      className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                      className="inline-flex w-full justify-center rounded-md border border-zinc-300 bg-zinc-50 py-2 px-4 text-sm font-medium text-zinc-500 shadow-sm hover:bg-zinc-50 dark:bg-zinc-900/80 dark:bg-zinc-900/80"
                     >
                       <span className="sr-only">Sign in with Linkedin</span>
                       <svg
@@ -146,10 +146,10 @@ export default function Example() {
                   className="absolute inset-0 flex items-center"
                   aria-hidden="true"
                 >
-                  <div className="w-full border-t border-gray-300" />
+                  <div className="w-full border-t border-zinc-300" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="bg-white px-2 text-gray-500">
+                  <span className="bg-zinc-50 px-2 text-zinc-500 dark:bg-zinc-900/80">
                     Or continue with
                   </span>
                 </div>
@@ -165,7 +165,7 @@ export default function Example() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-zinc-700"
                   >
                     Email address
                   </label>
@@ -176,14 +176,14 @@ export default function Example() {
                       type="email"
                       autoComplete="email"
                       aria-required={true}
-                      className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                      className="block w-full appearance-none rounded-md border border-zinc-300 px-3 py-2 placeholder-zinc-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-emerald-600 sm:text-sm"
                     />
                   </div>
                 </div>
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                    className="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-zinc-50 shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2"
                   >
                     Send magic link
                   </button>

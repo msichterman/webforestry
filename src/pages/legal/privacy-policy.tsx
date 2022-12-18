@@ -41,7 +41,7 @@ const PrivacyPolicy: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200 dark:text-neutral-900"
                         fill="currentColor"
                       />
                     </pattern>
@@ -73,7 +73,7 @@ const PrivacyPolicy: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200 dark:text-neutral-900"
                         fill="currentColor"
                       />
                     </pattern>
@@ -88,7 +88,7 @@ const PrivacyPolicy: NextPage = () => {
                   className="absolute bottom-12 left-full translate-x-32 transform"
                   width={404}
                   height={384}
-                  fill="none"
+                  fill="currentColor"
                   viewBox="0 0 404 384"
                 >
                   <defs>
@@ -105,7 +105,7 @@ const PrivacyPolicy: NextPage = () => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-gray-200"
+                        className="text-zinc-200 dark:text-neutral-900"
                         fill="currentColor"
                       />
                     </pattern>
@@ -124,12 +124,12 @@ const PrivacyPolicy: NextPage = () => {
                   <span className="block text-center text-lg font-semibold text-emerald-600">
                     Legal
                   </span>
-                  <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                  <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-zinc-900  dark:text-caramel-100 sm:text-4xl">
                     Privacy Policy
                   </span>
                 </h1>
               </div>
-              <div className="prose-base prose-emerald text-gray-2000 prose mx-auto mt-6">
+              <div className="prose-base prose-emerald prose mx-auto mt-6 dark:prose-invert">
                 <h2>1. GENERAL</h2>
 
                 <p>

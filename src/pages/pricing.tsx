@@ -94,16 +94,16 @@ const Pricing: NextPage = () => {
         </section>
 
         {/* FAQs */}
-        <section aria-labelledby="faq-heading" className="bg-gray-900">
+        <section aria-labelledby="faq-heading" className="bg-zinc-900">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="max-w-2xl lg:mx-auto lg:text-center">
               <h2
                 id="faq-heading"
-                className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+                className="text-3xl font-extrabold tracking-tight text-zinc-50 sm:text-4xl"
               >
                 Frequently asked questions
               </h2>
-              <p className="mt-4 text-gray-400">
+              <p className="mt-4 text-zinc-400">
                 If you&apos;re new to Web Forestry or looking to compare with
                 other agencies, this guide will help you learn more about the
                 platform, its features, and what you should expect as a paying
@@ -114,8 +114,10 @@ const Pricing: NextPage = () => {
               <dl className="space-y-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10 lg:space-y-0">
                 {faqs.map((faq) => (
                   <div key={faq.id}>
-                    <dt className="font-semibold text-white">{faq.question}</dt>
-                    <dd className="mt-3 text-gray-400">{faq.answer}</dd>
+                    <dt className="font-semibold text-zinc-50">
+                      {faq.question}
+                    </dt>
+                    <dd className="mt-3 text-zinc-400">{faq.answer}</dd>
                   </div>
                 ))}
               </dl>

@@ -1,13 +1,20 @@
-import { UnknownObject } from "@/utils/typeUtils";
+import clsx from "clsx";
+import { AnchorHTMLAttributes } from "react";
 
-type Props = {
-  children: React.ReactNode;
-  to: string;
-} & UnknownObject;
-
-const ExternalLink = ({ to, children, ...rest }: Props) => {
+const ExternalLink = ({
+  href,
+  children,
+  className,
+  ...rest
+}: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
-    <a href={to} target="_blank" rel="noreferrer" {...rest}>
+    <a
+      href={href}
+      className={clsx(className, "cursor-pointer")}
+      target="_blank"
+      rel="noreferrer"
+      {...rest}
+    >
       {children}
     </a>
   );

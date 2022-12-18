@@ -14,6 +14,18 @@ module.exports = {
         teal: colors.teal,
         cyan: colors.cyan,
         rose: colors.rose,
+        caramel: {
+          50: "#f7f6f3",
+          100: "#f0eee5",
+          200: "#dfd9c8",
+          300: "#d5c9af",
+          400: "#bda57a",
+          500: "#b28e5c",
+          600: "#a97c4c",
+          700: "#8f653d",
+          800: "#7a5033",
+          900: "#684227",
+        },
       },
     },
     fontFamily: {

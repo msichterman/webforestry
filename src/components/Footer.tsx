@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { UnknownObject } from "../utils/typeUtils";
+import { SVGProps } from "react";
 import ExternalLink from "./utils/ExternalLink";
 import NavLink from "./utils/NavLink";
 
@@ -21,7 +21,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
       {
         name: "Twitter",
         href: "https://twitter.com/mattsichterman",
-        icon: (props: UnknownObject) => (
+        icon: (props: SVGProps<SVGSVGElement>) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
           </svg>
@@ -30,7 +30,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
       {
         name: "Instagram",
         href: "https://instagram.com/mattsichterman",
-        icon: (props: UnknownObject) => (
+        icon: (props: SVGProps<SVGSVGElement>) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
               fillRule="evenodd"
@@ -43,7 +43,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
       {
         name: "Facebook",
         href: "https://www.facebook.com/msichterman",
-        icon: (props: UnknownObject) => (
+        icon: (props: SVGProps<SVGSVGElement>) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
               fillRule="evenodd"
@@ -63,7 +63,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
   return (
     <footer
       className={clsx(
-        "bg-gray-900",
+        "bg-gray-900 dark:bg-neutral-900",
         className,
         isTight ? null : "mt-24 sm:mt-12"
       )}
@@ -77,14 +77,14 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
         {!isApp && (
           <nav
             className="-mx-5 -my-2 flex flex-wrap justify-center"
-            aria-label="Footer"
+            aria-label="Footer with navigation links"
           >
             {footerNavigation.main.map(({ name, href, exact = false }) => (
               <div key={name} className="px-5 py-2">
                 <NavLink
                   href={href}
-                  className="text-base text-gray-400 hover:text-gray-300"
-                  activeClassName="text-gray-200"
+                  className="text-base text-zinc-400 hover:text-zinc-300 dark:text-caramel-200 dark:hover:text-caramel-400"
+                  activeClassName="text-zinc-200 dark:text-caramel-400"
                   exact={exact}
                 >
                   {name}
@@ -95,13 +95,14 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
         )}
         <div
           className={clsx("flex justify-center space-x-6", !isApp && "my-8")}
+          aria-label="Social media links"
         >
           {footerNavigation.social.map((item) => (
             <ExternalLink
               key={item.name}
-              to={item.href}
+              href={item.href}
               aria-label={item.name}
-              className="text-gray-400 hover:text-gray-300"
+              className="text-zinc-400 hover:text-zinc-300 dark:text-caramel-300"
             >
               <>
                 <span className="sr-only">{item.name}</span>
@@ -113,14 +114,14 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
         {!isApp && (
           <nav
             className="-mx-5 -my-2 flex flex-wrap justify-center"
-            aria-label="Footer"
+            aria-label="Footer with legal links"
           >
             {footerNavigation.legal.map(({ name, href, exact = false }) => (
               <div key={name} className="px-5 py-2">
                 <NavLink
                   href={href}
-                  className="text-sm text-gray-400 hover:text-gray-300"
-                  activeClassName="text-gray-200"
+                  className="text-sm text-zinc-400 hover:text-zinc-300 dark:text-caramel-200"
+                  activeClassName="text-zinc-200 dark:text-caramel-400"
                   exact={exact}
                 >
                   {name}
@@ -129,7 +130,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
             ))}
           </nav>
         )}
-        <p className="mt-8 text-center text-base text-gray-400">
+        <p className="mt-8 text-center text-base text-zinc-400 dark:text-caramel-300">
           &copy; 2022 Web Forestry. All rights reserved.
         </p>
       </div>

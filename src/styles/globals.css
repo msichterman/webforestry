@@ -33,9 +33,9 @@
     @apply text-xs font-medium text-red-500;
   }
   .input {
-    @apply block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-5 py-3 text-gray-900 placeholder-gray-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-base;
+    @apply block w-full appearance-none rounded-md border border-zinc-200 bg-zinc-50 px-5 py-3 text-zinc-900  placeholder-zinc-400 focus:border-emerald-600 focus:bg-zinc-50 focus:outline-none focus:ring-emerald-600 dark:bg-zinc-900/80 dark:bg-zinc-900/80 dark:text-caramel-100 sm:text-base;
   }
   .error-input {
-    @apply block w-full appearance-none rounded-md border border-red-500 bg-gray-50 px-5 py-3 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-emerald-500 sm:text-base;
+    @apply block w-full appearance-none rounded-md border border-red-500 bg-zinc-50 px-5 py-3 text-zinc-900  placeholder-zinc-400 focus:bg-zinc-50 focus:outline-none focus:ring-emerald-600 dark:bg-zinc-900/80 dark:bg-zinc-900/80 dark:text-caramel-100 sm:text-base;
   }
 }

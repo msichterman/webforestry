@@ -26,7 +26,13 @@ function NavLink({
 
   return (
     <Link href={href} {...props}>
-      <span className={clsx(className, isActive && activeClassName)}>
+      <span
+        className={clsx(
+          className,
+          isActive && activeClassName,
+          "cursor-pointer"
+        )}
+      >
         {children}
       </span>
     </Link>

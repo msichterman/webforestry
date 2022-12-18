@@ -14,16 +14,18 @@ export default function Profile() {
     <AppLayout>
       <div className="py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-          <h1 className="text-2xl font-semibold text-gray-900">Profile</h1>
+          <h1 className="text-2xl font-semibold text-zinc-900  dark:text-caramel-100">
+            Profile
+          </h1>
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="py-4">
-            <div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
+            <div className="w-full max-w-sm rounded-lg border border-zinc-200 bg-zinc-50 shadow-md dark:border-zinc-700 dark:bg-zinc-900/80 dark:bg-zinc-800">
               <div className="flex justify-end px-4 pt-8">
                 {/* <button
                   id="dropdownButton"
                   data-dropdown-toggle="dropdown"
-                  className="inline-block rounded-lg p-1.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                  className="inline-block rounded-lg p-1.5 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700"
                   type="button"
                 >
                   <span className="sr-only">Open dropdown</span>
@@ -44,10 +46,10 @@ export default function Profile() {
                   src={user.image || fallbackAvatar(user.name)}
                   alt="The user's profile avatar"
                 />
-                <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+                <h5 className="mb-1 text-xl font-medium text-zinc-900  dark:text-caramel-100">
                   {user.name}
                 </h5>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
+                <span className="text-sm text-zinc-500 dark:text-zinc-400">
                   {user.email}
                 </span>
               </div>

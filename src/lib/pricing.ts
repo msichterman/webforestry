@@ -43,7 +43,7 @@ export const PRICING_TIERS: PricingTier[] = [
       },
       {
         term: "One-time",
-        value: 6965,
+        value: 3995,
         active: true,
       },
     ],
@@ -77,7 +77,7 @@ export const PRICING_TIERS: PricingTier[] = [
       },
       {
         term: "One-time",
-        value: 11990,
+        value: 7995,
         active: false,
       },
     ],
@@ -111,7 +111,7 @@ export const PRICING_TIERS: PricingTier[] = [
       },
       {
         term: "One-time",
-        value: 16990,
+        value: 11995,
         active: true,
       },
     ],
