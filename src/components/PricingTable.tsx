@@ -1,6 +1,7 @@
 import { PRICING_TIERS } from "@/lib/pricing";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ElementType } from "react";
 
 type PricingTableProps = {
@@ -12,6 +13,17 @@ export default function PricingTable({
   firstHeadingComponent: HOne = "h1",
   secondHeadingComponent: HTwo = "h2",
 }: PricingTableProps) {
+  const router = useRouter();
+
+  function onQuoteRequest(tierName: string) {
+    router.push(
+      {
+        pathname: "/contact",
+        query: { flow: `QUOTE_${tierName.toUpperCase()}` },
+      },
+      "contact"
+    );
+  }
   return (
     <div className="bg-gray-800 dark:bg-gray-900/20">
       <div className="relative overflow-hidden pt-32 pb-96 lg:pt-40">
@@ -84,13 +96,13 @@ export default function PricingTable({
                         ))}
                       </ul>
                       <div className="mt-8">
-                        <Link
-                          href={tier.href}
+                        <button
+                          onClick={() => onQuoteRequest(tier.name)}
                           className="inline-block w-full rounded-lg bg-emerald-600 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-zinc-50 shadow-md hover:bg-emerald-700"
                           aria-label={`Get a quote for the ${tier.name} tier`}
                         >
                           Get a quote
-                        </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -112,12 +124,13 @@ export default function PricingTable({
                 </div>
               </div>
               <div>
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => onQuoteRequest("Enterprise")}
                   className="inline-block rounded-lg bg-emerald-50 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-emerald-700 hover:bg-emerald-100"
+                  aria-label="Book a call for more enterprise options"
                 >
                   Book a call <span aria-hidden="true">&rarr;</span>
-                </Link>
+                </button>
               </div>
             </div>
           </div>

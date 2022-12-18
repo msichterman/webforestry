@@ -17,7 +17,15 @@ import { pickBy } from "../utils/objectUtils";
 import { trpc } from "@/utils/trpc";
 import ResultBadge from "@/components/ResultBadge";
 import { useRouter } from "next/router";
-import { GET_STARTED, REPORT_ERROR, TALK_SOON } from "@/utils/constants";
+import {
+  GET_STARTED,
+  QUOTE_ENTERPRISE,
+  QUOTE_GROW,
+  QUOTE_SPROUT,
+  QUOTE_THRIVE,
+  REPORT_ERROR,
+  TALK_SOON,
+} from "@/utils/constants";
 import { UnknownObject } from "@/utils/typeUtils";
 
 type FormInputProps = {
@@ -156,6 +164,43 @@ const Contact: NextPage = () => {
       setValue(
         "message",
         "Hello! While using Web Forestry, an error that I did not expect occurred. A description of the error is..."
+      );
+      break;
+    case QUOTE_SPROUT:
+      setValue(
+        "subject",
+        "I am interested in the 'Sprout' tier for my business"
+      );
+      setValue(
+        "message",
+        "Hello! I am ready to get started, and I am interested in the 'Sprout' tier for my business. Here is more information about my website needs:"
+      );
+      break;
+    case QUOTE_GROW:
+      setValue("subject", "I am interested in the 'Grow' tier for my business");
+      setValue(
+        "message",
+        "Hello! I am ready to get started, and I am interested in the 'Grow' tier for my business. Here is more information about my website needs:"
+      );
+      break;
+    case QUOTE_THRIVE:
+      setValue(
+        "subject",
+        "I am interested in the 'Thrive' tier for my business"
+      );
+      setValue(
+        "message",
+        "Hello! I am ready to get started, and I am interested in the 'Thrive' tier for my business. Here is more information about my website needs:"
+      );
+      break;
+    case QUOTE_ENTERPRISE:
+      setValue(
+        "subject",
+        "I am interested to chat more about the 'Enterprise' offerings"
+      );
+      setValue(
+        "message",
+        "Hello! I am ready to get started, but my team has more complex requirements and projects. Here is more information about my website needs, and a good time for me to chat:"
       );
       break;
   }
