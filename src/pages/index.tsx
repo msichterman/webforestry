@@ -284,8 +284,7 @@ const Home: NextPage = () => {
                         <p className="relative">
                           Web Forestry&apos;s attention to detail and ability to
                           turn our ideas into reality makes them a joy to work
-                          with. If you want to grow your business, then you need
-                          to call Web Forestry.
+                          with.
                         </p>
                       </div>
 
