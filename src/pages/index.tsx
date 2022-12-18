@@ -267,7 +267,7 @@ const Home: NextPage = () => {
                   />
                   <div className="absolute inset-0 bg-emerald-600 mix-blend-multiply" />
                   <div className="bg-gradient-to-t absolute inset-0 from-emerald-700 via-emerald-700 opacity-50" />
-                  <div className="relative bg-zinc-900/50 px-8 py-5">
+                  <div className="relative bg-zinc-900/50 px-8 py-5 backdrop-blur-sm">
                     <div className="w-36">
                       <BeefJurgySvg className="h-full w-full drop-shadow-2xl" />
                     </div>
