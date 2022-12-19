@@ -108,7 +108,7 @@ const Header = ({ isWide = false }) => {
 
   return (
     <Popover
-      className="sticky top-0 z-50 bg-zinc-50/90 shadow dark:bg-zinc-900/95"
+      className="sticky top-0 z-50 bg-zinc-50/90 shadow backdrop-blur dark:bg-zinc-900/90"
       as="nav"
       aria-label="Main"
     >
