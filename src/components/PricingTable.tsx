@@ -32,7 +32,7 @@ export default function PricingTable({
             <HOne className="text-lg font-semibold leading-8 text-emerald-400">
               Pricing
             </HOne>
-            <HTwo className="mt-2 text-4xl font-bold tracking-tight text-zinc-50">
+            <HTwo className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-50">
               Choose the right plan for your business and watch it flourish.
             </HTwo>
             <p className="mt-6 text-lg leading-8 text-zinc-50/70 dark:text-caramel-100">
