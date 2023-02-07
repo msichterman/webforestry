@@ -9,15 +9,17 @@
   h4,
   h5,
   button,
-  a {
-    font-family: Josefin Sans, system-ui, sans-serif;
+  th,
+  a,
+  a > span {
+    font-family: var(--font-josefin-sans), system-ui, sans-serif;
     font-style: normal;
     font-variant: normal;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
   }
-  html {
-    font-family: Lato, system-ui, sans-serif;
+  * {
+    font-family: var(--font-lato), system-ui, sans-serif;
     font-style: normal;
     font-variant: normal;
     -webkit-font-smoothing: auto;

@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import PageLayout from "../layouts/PageLayout";
 import { CameraIcon } from "@heroicons/react/20/solid";
-import Image from "next/future/image";
+import Image from "next/image";
 import ExternalLink from "@/components/utils/ExternalLink";
 
 const Trees: NextPage = () => {

@@ -131,7 +131,7 @@ const Footer = ({ className, isTight = false, isApp = false }: Props) => {
           </nav>
         )}
         <p className="mt-8 text-center text-base text-zinc-400 dark:text-caramel-300">
-          &copy; 2022 Web Forestry. All rights reserved.
+          &copy; {new Date().getFullYear()} Web Forestry. All rights reserved.
         </p>
       </div>
     </footer>

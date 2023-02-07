@@ -9,10 +9,26 @@ import type { AppRouter } from "@/server/trpc/router";
 import "../styles/globals.css";
 import { Session } from "next-auth";
 import React from "react";
+import { Josefin_Sans, Lato } from "@next/font/google";
+import clsx from "clsx";
 
 const isServerSideRendered = () => {
   return typeof window === "undefined";
 };
+
+const josefinSans = Josefin_Sans({
+  variable: "--font-josefin-sans",
+  weight: ["200", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const lato = Lato({
+  variable: "--font-lato",
+  weight: ["300", "400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -30,9 +46,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
   }
 
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <div lang="en" className={clsx(josefinSans.variable, lato.variable)}>
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 import { StarIcon } from "@heroicons/react/20/solid";
 import ExternalLink from "../components/utils/ExternalLink";
 import PricingTable from "../components/PricingTable";

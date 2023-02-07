@@ -29,7 +29,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
+      sans: ["var(--font-josefin-sans)", ...defaultTheme.fontFamily.sans],
+      body: ["var(--font-lato)", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       tiny: ["0.6rem", { lineHeight: "1rem" }],

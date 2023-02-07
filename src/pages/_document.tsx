@@ -39,14 +39,6 @@ export default function Document() {
   return (
     <Html className="h-full antialiased" lang="en">
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=optional"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato&display=optional"
-          rel="stylesheet"
-        />
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
         <link
           rel="alternate"

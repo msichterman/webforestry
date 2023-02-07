@@ -1,4 +1,4 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import DinklageLogo from "../../public/img/dinklage-white.png";
 import BeefJurgyLogo from "../../public/img/beef-jurgy-white.png";
 import GrowLocalLogo from "../../public/img/grow-local-white.png";
