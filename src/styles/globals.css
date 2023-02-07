@@ -11,7 +11,7 @@
   button,
   th,
   a,
-  a > span {
+  a span {
     font-family: var(--font-josefin-sans), system-ui, sans-serif;
     font-style: normal;
     font-variant: normal;
