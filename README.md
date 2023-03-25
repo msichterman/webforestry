@@ -40,7 +40,6 @@ Here at Web Forestry, we are committed to helping businesses like Dinklage Feed 
 * [Planetscale](https://planetscale.com/) – MySQL Database
 * [Vercel](https://vercel.com/) – Deployment Platform
 * [Contentlayer](https://www.contentlayer.dev/) – Typesafe Markdown
-* [Lucide](https://lucide.dev/) – Icons
 
 ## Get In Touch
 * Follow me on [Twitter](https://twitter.com/mattsichterman)
