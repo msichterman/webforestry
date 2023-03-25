@@ -8,7 +8,7 @@
 
 </div>
 
-# Web Forestry – website development agency for growing businesses
+# Web Forestry – Website development agency for growing businesses
 Creating, managing, planting, conserving, and repairing your websites so you don't have to.
 
 ## Motivation
