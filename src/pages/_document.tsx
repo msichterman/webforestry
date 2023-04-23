@@ -41,12 +41,7 @@ export default function Document() {
     <Html className="h-full antialiased" lang="en">
       <Head>
         <Script id="dark-mode" dangerouslySetInnerHTML={{ __html: modeScript }} />
-        <Script
-          id="beam-analytics"
-          src="https://beamanalytics.b-cdn.net/beam.min.js"
-          data-token="13a52d15-6508-4e96-850b-62c6e744f58e"
-          async
-        />
+        <Script id="beam-analytics" src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="13a52d15-6508-4e96-850b-62c6e744f58e" async />
         <link
           rel="alternate"
           type="application/rss+xml"
