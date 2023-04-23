@@ -1,6 +1,5 @@
 import { PRICING_TIERS } from "@/lib/pricing";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { ElementType } from "react";
 
