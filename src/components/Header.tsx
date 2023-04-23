@@ -175,13 +175,6 @@ const Header = ({ isWide = false }) => {
               <ModeToggle />
             </div>
           </Popover.Group>
-          {/* <div className="flex items-center md:ml-12">
-            <Link href={currentUser ? "app/dashboard" : "app/sign-in"}>
-              <span className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-base font-medium text-zinc-50 shadow-sm hover:bg-emerald-700">
-                {currentUser ? "Dashboard" : "Sign in"}
-              </span>
-            </Link>
-          </div> */}
         </div>
       </div>
 
