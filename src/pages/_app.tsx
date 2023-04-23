@@ -28,10 +28,7 @@ const lato = Lato({
   display: "swap",
 });
 
-const MyApp: AppType<{ session: null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}) => {
+const MyApp: AppType = ({ Component, pageProps }) => {
   if (process.env.NODE_ENV !== "production" && !isServerSideRendered()) {
     const axeConfig = {
       rules: [],
@@ -45,7 +42,7 @@ const MyApp: AppType<{ session: null }> = ({
 
   return (
     <div lang="en" className={clsx(josefinSans.variable, lato.variable)}>
-        <Component {...pageProps} />
+      <Component {...pageProps} />
     </div>
   );
 };

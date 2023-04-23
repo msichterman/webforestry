@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -39,7 +40,13 @@ export default function Document() {
   return (
     <Html className="h-full antialiased" lang="en">
       <Head>
-        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+        <Script id="dark-mode" dangerouslySetInnerHTML={{ __html: modeScript }} />
+        <Script
+          id="beam-analytics"
+          src="https://beamanalytics.b-cdn.net/beam.min.js"
+          data-token="13a52d15-6508-4e96-850b-62c6e744f58e"
+          async
+        />
         <link
           rel="alternate"
           type="application/rss+xml"
