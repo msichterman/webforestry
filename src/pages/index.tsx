@@ -20,9 +20,8 @@ import LogoCloud from "@/components/LogoCloud";
 
 const stats = [
   { label: "Founded", value: "2022" },
-  { label: "Websites Shipped", value: "3" },
-  { label: "Trees Planted", value: "60" },
-  { label: "Websites in Progress", value: "1" },
+  { label: "Websites Shipped", value: "4" },
+  { label: "Trees Planted", value: "100" },
 ];
 
 const Home: NextPage = () => {
