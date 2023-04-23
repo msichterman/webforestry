@@ -2,12 +2,10 @@
 import { httpBatchLink } from "@trpc/client/links/httpBatchLink";
 import { loggerLink } from "@trpc/client/links/loggerLink";
 import { withTRPC } from "@trpc/next";
-import { SessionProvider } from "next-auth/react";
 import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import type { AppRouter } from "@/server/trpc/router";
 import "../styles/globals.css";
-import { Session } from "next-auth";
 import React from "react";
 import { Josefin_Sans, Lato } from "@next/font/google";
 import clsx from "clsx";
@@ -30,7 +28,7 @@ const lato = Lato({
   display: "swap",
 });
 
-const MyApp: AppType<{ session: Session | null }> = ({
+const MyApp: AppType<{ session: null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
@@ -47,9 +45,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 
   return (
     <div lang="en" className={clsx(josefinSans.variable, lato.variable)}>
-      <SessionProvider session={session}>
         <Component {...pageProps} />
-      </SessionProvider>
     </div>
   );
 };

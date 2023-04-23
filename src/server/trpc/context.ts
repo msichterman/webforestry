@@ -1,12 +1,10 @@
 // src/server/router/context.ts
 import * as trpc from "@trpc/server";
 import * as trpcNext from "@trpc/server/adapters/next";
-import { Session } from "next-auth";
-import { getServerAuthSession } from "../common/get-server-auth-session";
 import { prisma } from "../db/client";
 
 type CreateContextOptions = {
-  session: Session | null;
+  session: null;
 };
 
 /** Use this helper for:
@@ -25,16 +23,11 @@ export const createContextInner = async (opts: CreateContextOptions) => {
  * @link https://trpc.io/docs/context
  **/
 export const createContext = async (
-  opts: trpcNext.CreateNextContextOptions,
+  opts: trpcNext.CreateNextContextOptions
 ) => {
   const { req, res } = opts;
 
-  // Get the session from the server using the unstable_getServerSession wrapper function
-  const session = await getServerAuthSession({ req, res });
-
-  return await createContextInner({
-    session,
-  });
+  return await createContextInner({} as CreateContextOptions);
 };
 
 export type Context = trpc.inferAsyncReturnType<typeof createContext>;

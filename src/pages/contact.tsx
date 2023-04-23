@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ExternalLink from "../components/utils/ExternalLink";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { pickBy } from "../utils/objectUtils";
+import pickBy from "../utils/objectUtils";
 import { trpc } from "@/utils/trpc";
 import ResultBadge from "@/components/ResultBadge";
 import { useRouter } from "next/router";
